@@ -7,8 +7,9 @@ default: &default
 development:
   <<: *default
   database: bb_development
-  username: zeeyad
-  password: a1233217
+  username: zee
+  password: 123456
+  host: localhost
 
 test:
   <<: *default
