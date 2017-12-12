@@ -1,0 +1,2 @@
+module CsModulePostsHelper
+end

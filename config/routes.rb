@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :cs_modules
+  resources :cs_module_posts
   devise_for :users
 
   root to: 'static#homepage'

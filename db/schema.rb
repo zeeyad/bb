@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212074322) do
+ActiveRecord::Schema.define(version: 20171212133231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "cs_modules", force: :cascade do |t|
+  create_table "cs_module_posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "status", default: 0
