@@ -31,6 +31,8 @@ describe 'navigate' do
 	describe 'creation' do 
 
 		before do
+			user = FactoryBot.create(:user)
+			login_as(user, :scope => :user)
 			visit new_cs_module_post_path
 		end
 
@@ -44,7 +46,12 @@ describe 'navigate' do
 			expect { click_on "Save" }.to change(CsModulePost, :count).by(1)
 		end
 
-
+		it 'will have a user associated with cs module post' do
+			fill_in 'Title', with: "Title"
+			fill_in 'Description', with: "Some Description"
+			click_on "Save"
+			expect(User.last.cs_module_posts.last.description).to eq("Some Description")
+		end
 
 	end
 

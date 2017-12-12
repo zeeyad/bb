@@ -14,10 +14,10 @@ puts "1 User created"
 					type: "ProgrammeLeader")
 
 puts "1 Programme Leader User created"
-100.times do |csmodule|
-	CsModule.create( 
-		title: "Title # #{csmodule}",
-		description: "#{csmodule} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+100.times do |csmodulepost|
+	CsModulePost.create( 
+		title: "Title # #{csmodulepost}",
+		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. In volutpat nisi massa, eu varius metus pharetra eu. 
 			In libero justo, aliquam vel lectus eget, varius vulputate urna. 
@@ -28,4 +28,4 @@ puts "1 Programme Leader User created"
 			Nam sed consectetur nibh, eu tincidunt turpis.")
 end
 
-puts "100 cs module has been created"
+puts "100 cs module post has been created"

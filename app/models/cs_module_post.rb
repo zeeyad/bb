@@ -1,4 +1,4 @@
 class CsModulePost < ApplicationRecord
-
-	validates_presence_of :title, :description
+  belongs_to :user
+  validates_presence_of :title, :description
 end

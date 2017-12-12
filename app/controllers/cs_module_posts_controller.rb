@@ -12,6 +12,7 @@ class CsModulePostsController < ApplicationController
 
   def create
   	@cs_module = CsModulePost.new(cs_module_params)
+    @cs_module.user_id = current_user.id
   	if @cs_module.save
   		redirect_to @cs_module, notice: 'CS Module Post was successfully created'
   	else
