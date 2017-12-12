@@ -1,0 +1,3 @@
+class ProgrammeLeader < User
+
+end
