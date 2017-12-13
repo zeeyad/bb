@@ -25,7 +25,8 @@ puts "1 Programme Leader User created"
 			Integer vel vestibulum turpis. Ut ac lectus eu erat eleifend auctor. 
 			In in porttitor mi. Praesent quis magna quis felis venenatis tempor ut et felis. 
 			Suspendisse elementum commodo tortor at sagittis. Praesent sit amet dignissim lacus. 
-			Nam sed consectetur nibh, eu tincidunt turpis.")
+			Nam sed consectetur nibh, eu tincidunt turpis.",
+		user_id: @user.id)
 end
 
 puts "100 cs module post has been created"

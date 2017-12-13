@@ -1,0 +1,111 @@
+/*
+ *= require font-awesome
+*/
+
+@import "bootstrap";
+
+html,
+body {
+	overflow-x: hidden;
+	height: 100%;
+	font-family: 'Alegreya Sans', sans-serif;
+	font-size:17px;
+}
+
+.btn {
+	transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width:768px) {
+	#header {
+		text-align:center;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	#header img {
+		margin: auto;
+	}
+
+	#footer {
+		text-align: center;
+	}
+
+	.post-container .row-offcanvas {
+	    position: relative;
+	    -webkit-transition: all .25s ease-out;
+	         -o-transition: all .25s ease-out;
+	            transition: all .25s ease-out;
+  	}
+
+	.post-container .row-offcanvas-right {
+	    right: 0;
+	  }
+
+	.post-container .row-offcanvas-left {
+	    left: 0;
+	  }
+
+	.post-container .row-offcanvas-right
+	  .sidebar-offcanvas {
+	    right: -100%; /* 12 columns */
+	  }
+
+	.post-container .row-offcanvas-right.active
+	  .sidebar-offcanvas {
+	    right: -50%; /* 6 columns */
+	  }
+
+	.post-container .row-offcanvas-left
+	  .sidebar-offcanvas {
+	    left: -100%; /* 12 columns */
+	  }
+
+	.post-container .row-offcanvas-left.active
+	  .sidebar-offcanvas {
+	    left: -50%; /* 6 columns */
+	  }
+
+	 .post-container .row-offcanvas-right.active {
+	    right: 50%; /* 6 columns */
+	  }
+
+	.post-container .row-offcanvas-left.active {
+	    left: 50%; /* 6 columns */
+	  }
+
+	.post-container .sidebar-offcanvas {
+	    position: absolute;
+	    top: 0;
+	    width: 50%; /* 6 columns */
+	  }
+	}
+
+
+/* NAVIGATION */
+
+.navbar {
+    background-color:rgba(21,31,33,0.5);
+    border-bottom:1px solid #dedede;
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+.navbar .nav .nav-item .nav-link {
+    color:#d1d1d1;
+}
+
+.navbar .nav .nav-item .nav-link:hover {
+    color:#fff;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+.custom-toggler.navbar-toggler {
+    border-color: white;
+}
+
+.custom-toggler .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}

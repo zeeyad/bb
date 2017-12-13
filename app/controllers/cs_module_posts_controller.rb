@@ -25,6 +25,7 @@ class CsModulePostsController < ApplicationController
   end
 
   private
+  
   	def cs_module_params
   		params.require(:cs_module_post).permit(:title, :description)
   	end
