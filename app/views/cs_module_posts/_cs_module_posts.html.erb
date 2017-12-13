@@ -1,0 +1,18 @@
+<% if obj.empty? %>
+	<p class="text-center">There is no CS Module Post. Please add some!</p>
+<% else %>
+	<% obj.each do |csmodule| %>
+		<div class="card">
+			<a href="<%= cs_module_post_path(csmodule) %>" class="card-body">
+				<h4 class="card-title"><%= "#{csmodule.title}" %> - <small ><%= time_ago_in_words("#{csmodule.created_at}") %> ago</small> </h4>
+				<p class="card-text"><%= truncate(csmodule.description, length: 280) %></p>
+				<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
+			</a>
+
+			<div class="card-footer">
+				<%= link_to 'Edit', edit_cs_module_post_path(csmodule), class: "btn btn-info" %>		
+				<%= link_to 'Destroy', cs_module_post_path(csmodule), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

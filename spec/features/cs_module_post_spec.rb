@@ -2,8 +2,16 @@ require 'rails_helper'
 
 describe 'navigate' do
 
+	let(:user) { FactoryBot.create(:user) }
+
+	let(:cs_module_post) do
+		CsModulePost.create(title: "Title is good", 
+					description: "Rationale", 
+					user_id: user.id)
+	end
+
 	before do
-		
+		login_as(user, :scope => :user)
 	end
 
 	describe 'index' do
@@ -17,7 +25,7 @@ describe 'navigate' do
 		end
 
 		it 'has a title of cs module' do
-			expect(page).to have_content(/CSMODULES/)
+			expect(page).to have_content(/CS MODULE POSTS/)
 		end
 
 		it 'has a list of cs module post' do
@@ -31,8 +39,6 @@ describe 'navigate' do
 	describe 'creation' do 
 
 		before do
-			user = FactoryBot.create(:user)
-			login_as(user, :scope => :user)
 			visit new_cs_module_post_path
 		end
 
@@ -51,6 +57,27 @@ describe 'navigate' do
 			fill_in 'Description', with: "Some Description"
 			click_on "Save"
 			expect(User.last.cs_module_posts.last.description).to eq("Some Description")
+		end
+
+	end
+
+
+	describe 'edit' do
+
+		before do
+			visit edit_cs_module_post_path(cs_module_post)
+		end
+
+		it 'can be edited' do
+			expect(page.status_code).to eq(200)
+			fill_in 'Title', with: "My Title"
+	  		fill_in 'Description', with: "Edited Content"
+	  		click_on "Save"
+	  		expect(page).to have_content("Edited Content")
+		end
+
+		xit 'can be edited by clicking edit on the page' do
+
 		end
 
 	end

@@ -1,6 +1,6 @@
 class CsModulePostsController < ApplicationController
 
-  before_action :set_cs_module, only: [:show]
+  before_action :set_cs_module, only: [:show, :edit, :update]
 
   def index
   	@cs_modules = CsModulePost.all
@@ -22,6 +22,18 @@ class CsModulePostsController < ApplicationController
 
   def show
   	
+  end
+
+  def edit
+    
+  end
+
+  def update
+    if @cs_module.update(cs_module_params)
+      redirect_to cs_module_posts_path, notice: 'Your post was created successfully'
+    else
+      render 'edit'
+    end
   end
 
   private
