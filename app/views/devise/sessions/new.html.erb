@@ -4,8 +4,9 @@
     <div class="col-md-4 offset-md-4 landing-column">
 
       <h2>Log in</h2>
-      <%= render 'shared/messages' %>
+
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= render 'shared/errors', obj: resource %>
         <div class="form-group">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, class: "form-control" %>
