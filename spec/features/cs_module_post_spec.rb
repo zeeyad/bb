@@ -52,6 +52,13 @@ describe 'navigate' do
 			expect { click_on "Save" }.to change(CsModulePost, :count).by(1)
 		end
 
+		it 'can read flash messages after after successfully creating' do
+			fill_in 'Title', with: "Title"
+			fill_in 'Description', with: "Some Description"
+			click_on "Save"
+			expect(page).to have_content("Title was successfully created")
+		end
+
 		it 'will have a user associated with cs module post' do
 			fill_in 'Title', with: "Title"
 			fill_in 'Description', with: "Some Description"
@@ -85,6 +92,13 @@ describe 'navigate' do
 	  		expect(page).to have_content("Edited Content")
 		end
 
+		it 'can read flash messages after successfully editing' do
+			fill_in 'Title', with: "Title Module"
+			fill_in 'Description', with: "Some Description"
+			click_on "Save"
+			expect(page).to have_content("Title Module was successfully updated")
+		end
+
 	end
 
 	describe 'delete' do
@@ -98,6 +112,13 @@ describe 'navigate' do
 			visit cs_module_posts_path
 	  		click_link("delete_#{fact.id}")
 	  		expect(page.status_code).to eq(200)
+		end
+
+		it 'can read flash messages after successfully deleting' do
+			fact = FactoryBot.create(:ss_1202)
+			visit cs_module_posts_path
+	  		click_link("delete_#{fact.id}")
+			expect(page).to have_content("ss-1202 was successfully deleted")
 		end
 
 	end

@@ -14,7 +14,8 @@ class CsModulePostsController < ApplicationController
   	@cs_module = CsModulePost.new(cs_module_params)
     @cs_module.user_id = current_user.id
   	if @cs_module.save
-  		redirect_to @cs_module, notice: 'CS Module Post was successfully created'
+      flash[:success] = "#{@cs_module.title} was successfully created"
+  		redirect_to cs_module_posts_path
   	else
   		render 'new'
   	end
@@ -30,7 +31,8 @@ class CsModulePostsController < ApplicationController
 
   def update
     if @cs_module.update(cs_module_params)
-      redirect_to cs_module_posts_path, notice: 'Your post was created successfully'
+      flash[:success] = "#{@cs_module.title} was successfully updated"
+      redirect_to cs_module_posts_path
     else
       render 'edit'
     end
@@ -38,7 +40,8 @@ class CsModulePostsController < ApplicationController
 
   def destroy
     @cs_module.delete
-    redirect_to cs_module_posts_path, notice: 'Your post was deleted'
+    flash[:danger] = "#{@cs_module.title} was successfully deleted"
+    redirect_to cs_module_posts_path
   end
 
   private
