@@ -4,6 +4,7 @@
 
 @import "bootstrap";
 @import "cs_module_posts.scss";
+@import "devise_sessions.scss";
 
 html,
 body {
@@ -127,6 +128,10 @@ body {
 
 .navbar .nav .nav-link i:hover {
   color: rgba(255,255,255, 0.5);
+}
+
+.navbar .nav .btn-logout {
+	margin-top: 2px;
 }
 
 

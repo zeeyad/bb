@@ -1,0 +1,35 @@
+/* LANDING */
+
+
+#landing {
+	background:url('stars-bg.jpg') center center no-repeat;
+	background-size: cover;
+	color: white;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+
+#landing img {
+	padding: 0 0 20px;
+	width: 80%;
+}
+
+#landing .landing-column {
+	background-color: rgba(0,0,0,0.5);
+	padding: 30px;
+	border-radius: 30px;
+}
+
+#landing .fa{
+	margin:20px;
+}
+
+#landing a .fa {
+	color: #fff;
+}
+
+#landing a .fa:hover {
+	color: #ccc;
+}
