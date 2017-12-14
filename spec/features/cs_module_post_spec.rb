@@ -52,11 +52,17 @@ describe 'navigate' do
 			expect { click_on "Save" }.to change(CsModulePost, :count).by(1)
 		end
 
-		it 'can read flash messages after after successfully creating' do
+		it 'can read flash messages after successfully creating' do
 			fill_in 'Title', with: "Title"
 			fill_in 'Description', with: "Some Description"
 			click_on "Save"
 			expect(page).to have_content("Title was successfully created")
+		end
+
+		it 'can read flash messages if there is any errors after saving' do
+			fill_in 'Description', with: "Some Description"
+			click_on "Save"
+			expect(page).to have_content("Title can't be blank")
 		end
 
 		it 'will have a user associated with cs module post' do
