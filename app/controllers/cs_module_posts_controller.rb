@@ -1,6 +1,6 @@
 class CsModulePostsController < ApplicationController
 
-  before_action :set_cs_module, only: [:show, :edit, :update]
+  before_action :set_cs_module, only: [:show, :edit, :update, :destroy]
 
   def index
   	@cs_modules = CsModulePost.all
@@ -34,6 +34,11 @@ class CsModulePostsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @cs_module.delete
+    redirect_to cs_module_posts_path, notice: 'Your post was deleted'
   end
 
   private

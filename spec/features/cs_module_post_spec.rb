@@ -76,8 +76,28 @@ describe 'navigate' do
 	  		expect(page).to have_content("Edited Content")
 		end
 
-		xit 'can be edited by clicking edit on the page' do
+		it 'can be edited by clicking edit on the page' do
+			visit cs_module_posts_path
+			click_link("edit_#{cs_module_post.id}")
+			fill_in 'Title', with: "My Title"
+	  		fill_in 'Description', with: "Edited Content"
+	  		click_on "Save"
+	  		expect(page).to have_content("Edited Content")
+		end
 
+	end
+
+	describe 'delete' do
+
+		before do
+			visit cs_module_posts_path
+		end
+
+		it 'can be deleted' do
+			fact = FactoryBot.create(:ss_1202)
+			visit cs_module_posts_path
+	  		click_link("delete_#{fact.id}")
+	  		expect(page.status_code).to eq(200)
 		end
 
 	end
