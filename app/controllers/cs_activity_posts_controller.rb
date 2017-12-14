@@ -1,0 +1,2 @@
+class CsActivityPostsController < ApplicationController
+end
