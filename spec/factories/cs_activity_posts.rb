@@ -7,6 +7,6 @@ FactoryBot.define do
     venue "MyString"
     start_time "2017-12-14 21:32:07"
     end_time "2017-12-14 21:32:07"
-    user nil
+    user
   end
 end
