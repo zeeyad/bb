@@ -1,7 +1,9 @@
 class CsActivityPostsController < ApplicationController
 
+  before_action :set_cs_activity, only: [:edit, :update, :show, :destroy]
+
   def index
-  	
+  	@cs_activities = CsActivityPost.all
   end
 
 
@@ -20,7 +22,30 @@ class CsActivityPostsController < ApplicationController
   	end
   end
 
+  def edit
+    
+  end
+
+  def update
+    if @cs_activity.update(cs_activity_params)
+      flash[:success] = "#{@cs_activity.title} was successfully updated"
+      redirect_to cs_activity_posts_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @cs_activity.delete
+    flash[:danger] = "#{@cs_activity.title} was successfully deleted"
+    redirect_to cs_activity_posts_path    
+  end
+
   private
+
+    def set_cs_activity
+      @cs_activity = CsActivityPost.find(params[:id])
+    end
 
   	def cs_activity_params
   	  params.require(:cs_activity_post).permit(:title, :description, :start_date, :end_date, :start_time,

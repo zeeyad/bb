@@ -48,7 +48,7 @@ RSpec.describe CsActivityPost, type: :model do
       expect(@csactivity).to_not be_valid
     end
 
-    it 'can not be created if end time is earlier than start time provided date remains the same' do
+    it 'can not be created if end_time is earlier than start_time provided start_date and end_date are the same' do
       @csactivity = CsActivityPost.new(title: "aaa", description: "aaaaaa", start_date: Date.today, end_date: Date.today, start_time: Time.now, end_time: Time.now - 3600, venue: "vvvv", user_id: user.id)
       expect(@csactivity).to_not be_valid
     end
