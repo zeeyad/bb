@@ -23,10 +23,11 @@ class CsActivityPostsController < ApplicationController
   end
 
   def edit
-    
+    authorize @cs_activity
   end
 
   def update
+    authorize @cs_activity
     if @cs_activity.update(cs_activity_params)
       flash[:success] = "#{@cs_activity.title} was successfully updated"
       redirect_to cs_activity_posts_path
