@@ -26,8 +26,8 @@ describe 'navigate' do
 
 	it 'has a list of cs module post' do
 	  csactivity1 = FactoryBot.create(:activity_post_1)
-      csactivity2 = FactoryBot.create(:activity_post_2)
-      visit cs_activity_posts_path
+    csactivity2 = FactoryBot.create(:activity_post_2)
+    visit cs_activity_posts_path
 	  expect(page).to have_content(/ActivityPost1|ActivityPost2/)
 	end
 
@@ -36,6 +36,7 @@ describe 'navigate' do
   describe 'creation' do
 
   	before do
+      login_as(user, :scope => :user)
   	  visit new_cs_activity_post_path
   	end
 
@@ -58,7 +59,8 @@ describe 'navigate' do
   describe 'edit' do
 
   	before do
-  	  visit edit_cs_activity_post_path(cs_module_post)
+      cs_activity_post = FactoryBot.create(:activity_post_1, user_id: user.id)
+  	  visit edit_cs_activity_post_path(cs_activity_post)
   	end
 
   	it 'can be reached successfully' do
@@ -66,14 +68,23 @@ describe 'navigate' do
   	end
 
   	it 'can be edited by clicking edit on the page' do
-      cs_activity =  FactoryBot.create(:cs_activity_post)
+      cs_activity =  FactoryBot.create(:cs_activity_post, user_id: user.id)
   	  visit cs_activity_posts_path
   	  click_link("edit_#{cs_activity.id}")
-	  fill_in 'Title', with: "My Title"
- 	  fill_in 'Description', with: "Edited Content"
-	  click_on "Save"
-	  expect(page).to have_content("Edited Content")
-  	end  
+      fill_in 'Title', with: "My Title"
+    	fill_in 'Description', with: "Edited Content"
+      click_on "Save"
+      expect(page).to have_content("Edited Content")
+  	end 
+
+    it 'can not be edited by a non-authorized user' do
+      logout(:user)
+      other_user = FactoryBot.create(:other_user)
+      login_as(other_user, :scope => :user)
+      visit edit_cs_activity_post_path(cs_module_post)
+
+      expect(current_path).to eq(root_path)
+    end 
 
   end
 

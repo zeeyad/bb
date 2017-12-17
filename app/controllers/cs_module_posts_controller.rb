@@ -26,10 +26,11 @@ class CsModulePostsController < ApplicationController
   end
 
   def edit
-    
+    authorize @cs_module
   end
 
   def update
+    authorize @cs_module
     if @cs_module.update(cs_module_params)
       flash[:success] = "#{@cs_module.title} was successfully updated"
       redirect_to cs_module_posts_path
