@@ -8,11 +8,12 @@
 				<p class="card-text"><%= truncate(csmodule.description, length: 280) %></p>
 				<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
 			</a>
-
-			<div class="card-footer">
-				<%= link_to 'Edit', edit_cs_module_post_path(csmodule), class: "btn btn-info", id: "edit_#{csmodule.id}" %>		
-				<%= link_to 'Destroy', cs_module_post_path(csmodule), method: :delete, id: "delete_#{csmodule.id}", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
-			</div>
+			<% if current_user.id == csmodule.user.id %>
+				<div class="card-footer">
+					<%= link_to 'Edit', edit_cs_module_post_path(csmodule), class: "btn btn-info", id: "edit_#{csmodule.id}" %>		
+					<%= link_to 'Destroy', cs_module_post_path(csmodule), method: :delete, id: "delete_#{csmodule.id}", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+				</div>
+			<% end %>
 		</div>
 	<% end %>
 <% end %>
