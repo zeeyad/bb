@@ -110,18 +110,19 @@ describe 'navigate' do
 	describe 'delete' do
 
 		before do
+			login_as(user, :scope => :user)
 			visit cs_module_posts_path
 		end
 
 		it 'can be deleted' do
-			fact = FactoryBot.create(:ss_1202)
+			fact = FactoryBot.create(:ss_1202, user_id: user.id)
 			visit cs_module_posts_path
 	  		click_link("delete_#{fact.id}")
 	  		expect(page.status_code).to eq(200)
 		end
 
 		it 'can read flash messages after successfully deleting' do
-			fact = FactoryBot.create(:ss_1202)
+			fact = FactoryBot.create(:ss_1202, user_id: user.id)
 			visit cs_module_posts_path
 	  		click_link("delete_#{fact.id}")
 			expect(page).to have_content("ss-1202 was successfully deleted")

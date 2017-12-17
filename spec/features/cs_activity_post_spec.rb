@@ -95,7 +95,8 @@ describe 'navigate' do
   	end
 
   	it 'can be deleted' do
-  	  act = FactoryBot.create(:cs_activity_post)
+      login_as(user, :scope => :user)
+  	  act = FactoryBot.create(:cs_activity_post, user_id: user.id)
   	  visit cs_activity_posts_path
   	  click_link("delete_#{act.id}")
   	  expect(page.status_code).to eq(200)

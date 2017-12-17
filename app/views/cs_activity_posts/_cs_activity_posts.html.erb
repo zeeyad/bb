@@ -4,14 +4,15 @@
 	<% @cs_activities.each do |csactivity| %>
 		<div class="card">
 			<a href="<%= cs_activity_post_path(csactivity) %>" class="card-body">
-				<h4 class="card-title"><%= "#{csactivity.title}" %> - <small ><%= time_ago_in_words("#{csactivity.created_at}") %> ago</small> </h4>
+				<h4 class="card-title"><%= "#{csactivity.title}" %> - <small ><%= time_ago_in_words("#{csactivity.created_at}") %> ago </small> </h4>
 				<p class="card-text"><%= truncate(csactivity.description, length: 280) %></p>
 				<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
+				<p>- Posted by <%= csactivity.user.name %></p>
 			</a>
 			<% if current_user.id == csactivity.user.id %>
 				<div class="card-footer">
-					<%= link_to 'Edit', edit_cs_activity_post_path(csactivity), class: "btn btn-info", id: "edit_#{csactivity.id}" %>		
-					<%= link_to 'Destroy', cs_activity_post_path(csactivity), method: :delete, id: "delete_#{csactivity.id}", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+					<%= link_to '', edit_cs_activity_post_path(csactivity), class: "btn btn-secondary fa fa-pencil-square-o", id: "edit_#{csactivity.id}" %>		
+					<%= link_to '', cs_activity_post_path(csactivity), method: :delete, id: "delete_#{csactivity.id}", data: {confirm: "Are you sure?"}, class: "btn btn-danger fa fa-trash" %>
 				</div>
 			<% end %>
 		</div>
