@@ -1,4 +1,9 @@
 <ul class="nav">
+
+	<%= form_with url: search_path, local: true, method: :get, html: { clsss: "from-inline my-2 my-lg-0"} do |form| %>
+	<%= form.text_field :q, placeholder: "Search", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
+	<% end %>
+
   <li class="nav-item dropdown">
     <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
     <div class="dropdown-menu dropdown-menu-right">

@@ -5,10 +5,17 @@ class ApplicationController < ActionController::Base
   
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  rescue_from ActionController::UnknownFormat, with: :search_not_found
+
   private
 
   def user_not_authorized
-    flash[:danger] = "You are not authorized to perform this action."
+    flash[:alert] = "You are not authorized to perform this action."
     redirect_to(root_path)
+  end
+
+  def search_not_found
+    flash[:alert] = "No Search Found"
+    redirect_to(root_path)  	
   end
 end
