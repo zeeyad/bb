@@ -1,4 +1,5 @@
 class CsActivityPost < ApplicationRecord
+  enum status: { submitted: 0, approved: 1, rejected: 2}
   belongs_to :user
   after_initialize :set_defaults
   validate :check_time

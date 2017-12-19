@@ -9,6 +9,6 @@
   	<%= f.label :description %>
   	<%= f.text_area :description, class: "form-control" %>
   </div>
-
-	<%= f.submit "Save", class: "btn btn-primary btn-block" %>
+  <%= render partial: 'shared/status', locals: { f: f } if current_user.type == 'ProgrammeLeader' %>
+  <%= f.submit "Save", class: "btn btn-primary btn-block" %>
 <% end %>

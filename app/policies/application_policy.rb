@@ -24,6 +24,8 @@ class ApplicationPolicy
 
   def update?
     false
+    return true if programmeleader?
+    return true if user_or_admin && !post_approved?
   end
 
   def edit?
@@ -41,6 +43,22 @@ class ApplicationPolicy
   def admin_types
     ['ProgrammeLeader']
   end
+
+
+
+  private
+
+    def user_or_admin
+      record.user_id == user.id || programmeleader?
+    end
+
+    def programmeleader?
+      admin_types.include?(user.type) 
+    end
+
+    def post_approved?
+      record.approved?
+    end
 
   class Scope
     attr_reader :user, :scope

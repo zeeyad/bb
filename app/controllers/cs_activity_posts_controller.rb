@@ -50,7 +50,7 @@ class CsActivityPostsController < ApplicationController
 
   	def cs_activity_params
   	  params.require(:cs_activity_post).permit(:title, :description, :start_date, :end_date, :start_time,
-  	  											:end_time, :venue)
+  	  											:end_time, :venue, :status)
   	end
 
 end

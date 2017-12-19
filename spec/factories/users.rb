@@ -12,7 +12,7 @@ FactoryBot.define do
   	password_confirmation "asdfasdf"
   end
 
-  factory :admin_user , class: "AdminUser" do
+  factory :programme_leader , class: "ProgrammeLeader" do
     username "charlie"
     name "charlie dee"
     email { generate :email }

@@ -35,5 +35,7 @@
     <%= f.time_select :end_time, class: "form-control" %>
   </div>
 
+  <%= render partial: 'shared/status', locals: { f: f } if current_user.type == 'ProgrammeLeader' %>
+
   <%= f.submit "Save", class: "btn btn-primary btn-block" %>
 <% end %>

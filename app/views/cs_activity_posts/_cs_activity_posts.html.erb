@@ -9,7 +9,7 @@
 				<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
 				<p>- Posted by <%= csactivity.user.name %></p>
 			</a>
-			<% if current_user.id == csactivity.user.id %>
+			<% if policy(csactivity).update? %>
 				<div class="card-footer">
 					<%= link_to '', edit_cs_activity_post_path(csactivity), class: "btn btn-secondary fa fa-pencil-square-o", id: "edit_#{csactivity.id}" %>		
 					<%= link_to '', cs_activity_post_path(csactivity), method: :delete, id: "delete_#{csactivity.id}", data: {confirm: "Are you sure?"}, class: "btn btn-danger fa fa-trash" %>
