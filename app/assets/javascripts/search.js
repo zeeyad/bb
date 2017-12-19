@@ -9,9 +9,13 @@ document.addEventListener("turbolinks:load",function(){
   	categories: [
   	  {
   	  	listLocation: "cs_module_posts",
-  	  	header: "<strong>Cs Modules Post</strong>"
-  	  }
-  	],
+  	  	header: "<strong>CS MODULES POSTS</strong>"
+  	  },
+      {
+        listLocation: "cs_activity_posts",
+        header: "<strong>CS ACTIVITIES POSTS</strong>"
+      }
+    ],
   	list: {
   		onChooseEvent: function() {
   		  var url = $input.getSelectedItemData().url
