@@ -52,7 +52,7 @@ class CsModulePostsController < ApplicationController
   	end
 
   	def set_cs_module
-      @cs_module = CsModulePost.find(params[:id])
+      @cs_module = CsModulePost.friendly.find(params[:id])
   	end
 
 end
