@@ -1,4 +1,7 @@
 class CsActivityPost < ApplicationRecord
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+  
   enum status: { submitted: 0, approved: 1, rejected: 2}
   belongs_to :user
   after_initialize :set_defaults

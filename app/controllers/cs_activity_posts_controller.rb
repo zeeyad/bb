@@ -45,7 +45,7 @@ class CsActivityPostsController < ApplicationController
   private
 
     def set_cs_activity
-      @cs_activity = CsActivityPost.find(params[:id])
+      @cs_activity = CsActivityPost.friendly.find(params[:id])
     end
 
   	def cs_activity_params
