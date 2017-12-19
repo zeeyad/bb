@@ -7,4 +7,9 @@ class User < ApplicationRecord
 
   validates_presence_of :username
 
+  # after_create :send_notification
+
+  def send_notification
+  	AdminMailer.new_user(self).deliver
+  end
 end
