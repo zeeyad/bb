@@ -38,7 +38,7 @@ class CsActivityPostsController < ApplicationController
 
   def destroy
     @cs_activity.delete
-    flash[:danger] = "#{@cs_activity.title} was successfully deleted"
+    flash[:alert] = "#{@cs_activity.title} was successfully deleted"
     redirect_to cs_activity_posts_path    
   end
 

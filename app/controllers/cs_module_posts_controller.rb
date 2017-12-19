@@ -41,7 +41,7 @@ class CsModulePostsController < ApplicationController
 
   def destroy
     @cs_module.delete
-    flash[:danger] = "#{@cs_module.title} was successfully deleted"
+    flash[:alert] = "#{@cs_module.title} was successfully deleted"
     redirect_to cs_module_posts_path
   end
 
