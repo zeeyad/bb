@@ -1,3 +1,5 @@
+# TODO 10 POSTS FOR EACH STATUS FOR EACH USER
+
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 @user = User.create!(username: "testasdf", 
