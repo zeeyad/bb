@@ -1,3 +1,5 @@
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
 @user = User.create!(username: "testasdf", 
 					email: "test@test.com",
 					name: "jack smith", 
@@ -9,6 +11,7 @@ puts "1 User created"
 @programme_leader = User.create!(
 					username: "adminasdf",
 					email: "admin@admin.com", 
+					name: "adam d'russell", 
 					password: "asdfasdf", 
 					password_confirmation: "asdfasdf", 
 					type: "ProgrammeLeader")
@@ -90,7 +93,8 @@ puts "10 cs activity post has been created for normal user"
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
-		user_id: @programme_leader.id)
+		user_id: @programme_leader.id, 
+		status: 1)
 end
 
 puts "10 cs activity post has been created for programme leader user"
