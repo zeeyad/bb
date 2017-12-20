@@ -1,0 +1,9 @@
+<% if obj.empty? %>
+  <li class="list-group-item">No Posts</li>
+<% else %>
+  <% obj.each do |csactivity| %>
+    <a href="<%= cs_activity_post_path(csactivity) %>">
+	  <li class="list-group-item"><%= csactivity.title %></li>
+    </a>
+  <% end %>
+<% end %>

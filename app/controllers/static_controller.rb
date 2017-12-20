@@ -1,7 +1,8 @@
 class StaticController < ApplicationController
 
 	def homepage
-		
+		@cs_modules = CsModulePost.order_by_latest
+		@cs_activities = CsActivityPost.order_by_latest
 	end
 
 	def search

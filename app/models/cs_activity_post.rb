@@ -6,7 +6,6 @@ class CsActivityPost < ApplicationRecord
   scope :approved, ->{ where.not(status: 1)}
   scope :rejected, ->{ where.not(status: 2)}
 
-  enum status: { submitted: 0, approved: 1, rejected: 2}
   belongs_to :user
   after_initialize :set_defaults
   validate :check_time
