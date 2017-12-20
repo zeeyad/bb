@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe CsActivityPost, type: :model do
+RSpec.describe ActivityPost, type: :model do
 
   let(:user) { FactoryBot.create(:user) }
 
   before do
-  	@csactivity = FactoryBot.create(:cs_activity_post)
+  	@csactivity = FactoryBot.create(:activity_post)
   end
   
   describe 'creation' do
@@ -49,7 +49,7 @@ RSpec.describe CsActivityPost, type: :model do
     end
 
     it 'can not be created if end_time is earlier than start_time provided start_date and end_date are the same' do
-      @csactivity = CsActivityPost.new(title: "aaa", description: "aaaaaa", start_date: Date.today, end_date: Date.today, start_time: Time.now, end_time: Time.now - 3600, venue: "vvvv", user_id: user.id)
+      @csactivity = ActivityPost.new(title: "aaa", description: "aaaaaa", start_date: Date.today, end_date: Date.today, start_time: Time.now, end_time: Time.now - 3600, venue: "vvvv", user_id: user.id)
       expect(@csactivity).to_not be_valid
     end
 

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe CsModulePost, type: :model do
+RSpec.describe ModulePost, type: :model do
 
   before do
-  	@csmodule = FactoryBot.create(:cs_module_post)
+  	@csmodule = FactoryBot.create(:module_post)
   end
 
 

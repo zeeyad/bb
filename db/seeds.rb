@@ -20,7 +20,7 @@ puts "1 User created"
 
 puts "1 Programme Leader User created"
 10.times do |csmodulepost|
-	CsModulePost.create( 
+	ModulePost.create( 
 		title: "Java Programming # #{csmodulepost}",
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -31,7 +31,7 @@ end
 puts "10 cs module post has been created for normal user"
 
 10.times do |csmodulepost|
-	CsModulePost.create( 
+	ModulePost.create( 
 		title: "HTML Programming # #{csmodulepost}",
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -42,7 +42,7 @@ end
 puts "10 cs module post has been created for normal user"
 
 10.times do |csmodulepost|
-	CsModulePost.create( 
+	ModulePost.create( 
 		title: "JS Programming # #{csmodulepost}",
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -53,7 +53,7 @@ end
 puts "10 cs module post has been created for programme leader user"
 
 10.times do |csactivitypost|
-	CsActivityPost.create( 
+	ActivityPost.create( 
 		title: "Hackathon Marathon # #{csactivitypost}",
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -69,7 +69,7 @@ end
 puts "10 cs activity post has been created for normal user"
 
 10.times do |csactivitypost|
-	CsActivityPost.create( 
+	ActivityPost.create( 
 		title: "CyberSecurity Challenge # #{csactivitypost}",
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -85,7 +85,7 @@ end
 puts "10 cs activity post has been created for normal user"
 
 10.times do |csactivitypost|
-	CsActivityPost.create( 
+	ActivityPost.create( 
 		title: "Internet of Things # #{csactivitypost}",
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -102,7 +102,7 @@ end
 puts "10 cs activity post has been created for programme leader user"
 
 10.times do |csactivitypost|
-	CsActivityPost.create( 
+	ActivityPost.create( 
 		title: "Web Development Talk # #{csactivitypost}",
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
@@ -116,3 +116,25 @@ puts "10 cs activity post has been created for programme leader user"
 end
 
 puts "10 cs activity post has been created for programme leader user"
+
+# 10.times do |cseventpost|
+# 	EventPost.create( 
+# 		title: "JS Programming # #{cseventpost}",
+# 		description: "#{cseventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+# 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
+# 			Praesent vitae finibus libero. ",
+# 		user_id: @user.id)
+# end
+
+# puts "10 cs event post has been created for user"
+
+# 10.times do |cseventpost|
+# 	CsEventPost.create( 
+# 		title: "JS Programming # #{cseventpost}",
+# 		description: "#{cseventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+# 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
+# 			Praesent vitae finibus libero. ",
+# 		user_id: @programme_leader.id)
+# end
+
+# puts "10 cs event post has been created for programme leader user"

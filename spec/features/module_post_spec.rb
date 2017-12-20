@@ -6,8 +6,8 @@ describe 'navigate' do
 
 	let(:programme_leader) { FactoryBot.create(:programme_leader) }
 
-	let(:cs_module_post) do
-		CsModulePost.create(title: "Title is good", 
+	let(:module_post) do
+		ModulePost.create(title: "Title is good", 
 					description: "Rationale", 
 					user_id: user.id)
 	end
@@ -19,7 +19,7 @@ describe 'navigate' do
 	describe 'index' do
 
 		before do
-			visit cs_module_posts_path
+			visit module_posts_path
 		end
 
 		it 'can be reached successfully' do
@@ -27,13 +27,13 @@ describe 'navigate' do
 		end
 
 		it 'has a title of cs module' do
-			expect(page).to have_content(/CS MODULE POSTS/)
+			expect(page).to have_content(/MODULE POSTS/)
 		end
 
 		it 'has a list of cs module post' do
 			csmodule1 = FactoryBot.create(:ss_1201)
 	    	csmodule2 = FactoryBot.create(:ss_1202)
-	    	visit cs_module_posts_path
+	    	visit module_posts_path
 			expect(page).to have_content(/Programming|Information/)
 		end
 	end
@@ -41,7 +41,7 @@ describe 'navigate' do
 	describe 'creation' do 
 
 		before do
-			visit new_cs_module_post_path
+			visit new_module_post_path
 		end
 
 		it 'has form that can be reached' do
@@ -51,7 +51,7 @@ describe 'navigate' do
 		it 'can be created from new form page' do
 			fill_in 'Title', with: "Title"
 			fill_in 'Description', with: "Title"
-			expect { click_on "Save" }.to change(CsModulePost, :count).by(1)
+			expect { click_on "Save" }.to change(ModulePost, :count).by(1)
 		end
 
 		it 'can read flash messages after successfully creating' do
@@ -71,7 +71,7 @@ describe 'navigate' do
 			fill_in 'Title', with: "Title"
 			fill_in 'Description', with: "Some Description"
 			click_on "Save"
-			expect(User.last.cs_module_posts.last.description).to eq("Some Description")
+			expect(User.last.module_posts.last.description).to eq("Some Description")
 		end
 
 	end
@@ -80,7 +80,7 @@ describe 'navigate' do
 	describe 'edit' do
 
 		before do
-			visit edit_cs_module_post_path(cs_module_post)
+			visit edit_module_post_path(module_post)
 		end
 
 		it 'can be edited' do
@@ -92,8 +92,8 @@ describe 'navigate' do
 		end
 
 		it 'can be edited by clicking edit on the page' do
-			visit cs_module_posts_path
-			click_link("edit_#{cs_module_post.id}")
+			visit module_posts_path
+			click_link("edit_#{module_post.id}")
 			fill_in 'Title', with: "My Title"
 	  		fill_in 'Description', with: "Edited Content"
 	  		click_on "Save"
@@ -113,19 +113,19 @@ describe 'navigate' do
 
 		before do
 			login_as(programme_leader, :scope => :user)
-			visit cs_module_posts_path
+			visit module_posts_path
 		end
 
 		it 'can be deleted' do
 			fact = FactoryBot.create(:ss_1202, user_id: programme_leader.id)
-			visit cs_module_posts_path
+			visit module_posts_path
 	  		click_link("delete_#{fact.id}")
 	  		expect(page.status_code).to eq(200)
 		end
 
 		it 'can read flash messages after successfully deleting' do
 			fact = FactoryBot.create(:ss_1202, user_id: programme_leader.id)
-			visit cs_module_posts_path
+			visit module_posts_path
 	  		click_link("delete_#{fact.id}")
 			expect(page).to have_content("ss-1202 was successfully deleted")
 		end

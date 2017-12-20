@@ -1,0 +1,3 @@
+class ActivityPostPolicy < ApplicationPolicy
+
+end

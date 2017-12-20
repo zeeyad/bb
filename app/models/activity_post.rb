@@ -1,4 +1,4 @@
-class CsActivityPost < ApplicationRecord
+class ActivityPost < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
   

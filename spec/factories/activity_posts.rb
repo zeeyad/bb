@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :cs_activity_post do
+  factory :activity_post do
     title "MyString"
     description "MyText"
     start_date "2017-12-14"
@@ -10,7 +10,7 @@ FactoryBot.define do
     user
   end
 
-  factory :activity_post_1, class: "CsActivityPost" do
+  factory :activity_post_1, class: "ActivityPost" do
     title "ActivityPost1"
     description "MyText"
     start_date "2017-12-14"
@@ -21,7 +21,7 @@ FactoryBot.define do
     user
   end
 
-  factory :activity_post_2, class: "CsActivityPost" do
+  factory :activity_post_2, class: "ActivityPost" do
     title "ActivityPost2"
     description "MyText"
     start_date "2017-12-14"

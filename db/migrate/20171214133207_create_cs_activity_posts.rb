@@ -1,6 +1,6 @@
 class CreateCsActivityPosts < ActiveRecord::Migration[5.1]
   def change
-    create_table :cs_activity_posts do |t|
+    create_table :activity_posts do |t|
       t.string :title
       t.text :description
       t.date :start_date

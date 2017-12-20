@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :cs_module_posts
+  has_many :module_posts
+  has_many :activity_posts
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

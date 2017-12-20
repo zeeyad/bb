@@ -11,30 +11,30 @@ describe 'navigate' do
   describe 'edit' do
 
   	before do
-  	  @cs_activity = FactoryBot.create(:cs_activity_post, user_id: @programme_leader.id)
-      @cs_activity_2 = FactoryBot.create(:activity_post_1, user_id: @user.id)
-  	  visit edit_cs_activity_post_path(@cs_activity)
+  	  @cs_module = FactoryBot.create(:module_post, user_id: @programme_leader.id)
+      @cs_module_2 = FactoryBot.create(:ss_1201, user_id: @user.id)
+  	  visit edit_module_post_path(@cs_module)
   	end
 
   	it 'has a status that can be edited on the form' do
-      choose 'cs_activity_post_status_approved'
+      choose 'module_post_status_approved'
       click_on 'Save'
-      expect(@cs_activity.reload.status).to eq('approved')
+      expect(@cs_module.reload.status).to eq('approved')
     end
 
     it 'can not be edited by not creator or normal user' do
       logout(:programme_leader)
       @user = FactoryBot.create(:user)
       login_as(@user, :scope => :user)
-      visit edit_cs_activity_post_path(@cs_activity)
+      visit edit_module_post_path(@cs_module)
       expect(current_path).to eq(root_path)
     end
 
     it 'can not be editable by the post creator if status is approved' do
-      @cs_activity_2.update(status: 'approved')
+      @cs_module_2.update(status: 'approved')
       logout(:programme_leader)
       login_as(@user, :scope => :user)
-      visit edit_cs_activity_post_path(@cs_activity_2)
+      visit edit_module_post_path(@cs_module_2)
       expect(current_path).to eq(root_path)      
     end
 

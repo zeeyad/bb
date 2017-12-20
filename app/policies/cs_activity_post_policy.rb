@@ -1,3 +1,0 @@
-class CsActivityPostPolicy < ApplicationPolicy
-
-end

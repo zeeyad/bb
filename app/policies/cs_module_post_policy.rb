@@ -1,3 +1,0 @@
-class CsModulePostPolicy < ApplicationPolicy
-
-end

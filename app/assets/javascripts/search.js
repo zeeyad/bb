@@ -8,11 +8,11 @@ document.addEventListener("turbolinks:load",function(){
   	},
   	categories: [
   	  {
-  	  	listLocation: "cs_module_posts",
+  	  	listLocation: "module_posts",
   	  	header: "<strong>CS MODULES POSTS</strong>"
   	  },
       {
-        listLocation: "cs_activity_posts",
+        listLocation: "activity_posts",
         header: "<strong>CS ACTIVITIES POSTS</strong>"
       }
     ],
