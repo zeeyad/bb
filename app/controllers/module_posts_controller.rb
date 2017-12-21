@@ -1,20 +1,20 @@
 class ModulePostsController < ApplicationController
 
-  before_action :set_cs_module, only: [:show, :edit, :update, :destroy]
+  before_action :set_module_post, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@cs_modules = ModulePost.all
+  	@module_posts = ModulePost.all
   end
 
   def new
-  	@cs_module = ModulePost.new
+  	@module_post = ModulePost.new
   end
 
   def create
-  	@cs_module = ModulePost.new(cs_module_params)
-    @cs_module.user_id = current_user.id
-  	if @cs_module.save
-      flash[:success] = "#{@cs_module.title} was successfully created"
+  	@module_post = ModulePost.new(module_post_params)
+    @module_post.user_id = current_user.id
+  	if @module_post.save
+      flash[:success] = "#{@module_post.title} was successfully created"
   		redirect_to module_posts_path
   	else
   		render 'new'
@@ -26,13 +26,13 @@ class ModulePostsController < ApplicationController
   end
 
   def edit
-    authorize @cs_module
+    authorize @module_post
   end
 
   def update
-    authorize @cs_module
-    if @cs_module.update(cs_module_params)
-      flash[:success] = "#{@cs_module.title} was successfully updated"
+    authorize @module_post
+    if @module_post.update(module_post_params)
+      flash[:success] = "#{@module_post.title} was successfully updated"
       redirect_to module_posts_path
     else
       render 'edit'
@@ -40,19 +40,19 @@ class ModulePostsController < ApplicationController
   end
 
   def destroy
-    @cs_module.delete
-    flash[:alert] = "#{@cs_module.title} was successfully deleted"
+    @module_post.delete
+    flash[:alert] = "#{@module_post.title} was successfully deleted"
     redirect_to module_posts_path
   end
 
   private
   
-  	def cs_module_params
+  	def module_post_params
   		params.require(:module_post).permit(:title, :description, :status)
   	end
 
-  	def set_cs_module
-      @cs_module = ModulePost.friendly.find(params[:id])
+  	def set_module_post
+      @module_post = ModulePost.friendly.find(params[:id])
   	end
 
 end

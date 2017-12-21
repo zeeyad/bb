@@ -1,0 +1,9 @@
+<% if obj.empty? %>
+  <li class="list-group-item">No Posts</li>
+<% else %>
+  <% obj.each do |activitypost| %>
+    <a href="<%= activity_post_path(activitypost) %>">
+	  <li class="list-group-item"><%= activitypost.title %></li>
+    </a>
+  <% end %>
+<% end %>

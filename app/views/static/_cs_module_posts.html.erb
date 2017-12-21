@@ -1,9 +1,0 @@
-<% if obj.empty? %>
-  <li class="list-group-item">No Posts</li>
-<% else %>
-  <% obj.each do |csmodule| %>
-    <a href="<%= module_post_path(csmodule) %>">
-	  <li class="list-group-item"><%= csmodule.title %></li>
-    </a>
-  <% end %>
-<% end %>

@@ -1,16 +1,16 @@
 json.module_posts do
-  json.array!(@cs_module_posts) do |cs_module|
-  	json.title cs_module.title
-  	json.url module_post_path(cs_module)
-  	json.id cs_module.id
+  json.array!(@module_posts) do |module_post|
+  	json.title module_post.title
+  	json.url module_post_path(module_post)
+  	json.id module_post.id
   end
 end
 
 json.activity_posts do
-  json.array!(@cs_activity_posts) do |cs_activity|
-  	json.title cs_activity.title
-  	json.url activity_post_path(cs_activity)
-  	json.id cs_activity.id
+  json.array!(@activity_posts) do |activity_post|
+  	json.title activity_post.title
+  	json.url activity_post_path(activity_post)
+  	json.id activity_post.id
   end
 end
 

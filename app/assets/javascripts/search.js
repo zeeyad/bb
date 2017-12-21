@@ -9,11 +9,11 @@ document.addEventListener("turbolinks:load",function(){
   	categories: [
   	  {
   	  	listLocation: "module_posts",
-  	  	header: "<strong>CS MODULES POSTS</strong>"
+  	  	header: "<strong>MODULES POSTS</strong>"
   	  },
       {
         listLocation: "activity_posts",
-        header: "<strong>CS ACTIVITIES POSTS</strong>"
+        header: "<strong>ACTIVITIES POSTS</strong>"
       },
       {
         listLocation: "event_posts",

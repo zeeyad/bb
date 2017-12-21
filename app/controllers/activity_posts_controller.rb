@@ -1,20 +1,20 @@
 class ActivityPostsController < ApplicationController
 
-  before_action :set_activity, only: [:edit, :update, :show, :destroy]
+  before_action :set_activity_post, only: [:edit, :update, :show, :destroy]
 
   def index
-  	@cs_activities = ActivityPost.all
+  	@activity_posts = ActivityPost.all
   end
 
   def new
-  	@cs_activity = ActivityPost.new
+  	@activity_post = ActivityPost.new
   end
 
   def create
-  	@cs_activity = ActivityPost.new(cs_activity_params)
-  	@cs_activity.user_id = current_user.id
-  	if @cs_activity.save
-      flash[:success] = "#{@cs_activity.title} was successfully created"
+  	@activity_post = ActivityPost.new(activity_post_params)
+  	@activity_post.user_id = current_user.id
+  	if @activity_post.save
+      flash[:success] = "#{@activity_post.title} was successfully created"
   		redirect_to activity_posts_path
   	else
   		render 'new'
@@ -22,13 +22,13 @@ class ActivityPostsController < ApplicationController
   end
 
   def edit
-    authorize @cs_activity
+    authorize @activity_post
   end
 
   def update
-    authorize @cs_activity
-    if @cs_activity.update(cs_activity_params)
-      flash[:success] = "#{@cs_activity.title} was successfully updated"
+    authorize @activity_post
+    if @activity_post.update(activity_post_params)
+      flash[:success] = "#{@activity_post.title} was successfully updated"
       redirect_to activity_posts_path
     else
       render 'edit'
@@ -36,18 +36,18 @@ class ActivityPostsController < ApplicationController
   end
 
   def destroy
-    @cs_activity.delete
-    flash[:alert] = "#{@cs_activity.title} was successfully deleted"
+    @activity_post.delete
+    flash[:alert] = "#{@activity_post.title} was successfully deleted"
     redirect_to activity_posts_path    
   end
 
   private
 
-    def set_activity
-      @cs_activity = ActivityPost.friendly.find(params[:id])
+    def set_activity_post
+      @activity_post = ActivityPost.friendly.find(params[:id])
     end
 
-  	def cs_activity_params
+  	def activity_post_params
   	  params.require(:activity_post).permit(:title, :description, :start_date, :end_date, :start_time,
   	  											:end_time, :venue, :status)
   	end

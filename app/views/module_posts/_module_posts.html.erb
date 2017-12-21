@@ -1,0 +1,20 @@
+<% if obj.empty? %>
+	<p class="text-center">There is no Module Post. Please add some!</p>
+<% else %>
+	<% obj.each do |modulepost| %>
+		<div class="card">
+			<a href="<%= module_post_path(modulepost) %>" class="card-body">
+				<h4 class="card-title"><%= "#{modulepost.title}" %> - <small ><%= time_ago_in_words("#{modulepost.created_at}") %> ago</small> </h4>
+				<p class="card-text"><%= truncate(modulepost.description, length: 280) %></p>
+				<%#= image_tag(modulepost.picture.url, :size => '200x200') if modulepost.picture? %>
+				<p>- Posted by <%= modulepost.user.name %></p>
+			</a>
+			<% if policy(modulepost).update? %>
+				<div class="card-footer">
+					<%= link_to '', edit_module_post_path(modulepost), class: "btn btn-secondary fa fa-pencil-square-o", id: "edit_#{modulepost.id}" %>		
+					<%= link_to '', module_post_path(modulepost), method: :delete, id: "delete_#{modulepost.id}", data: {confirm: "Are you sure?"}, class: "btn btn-danger fa fa-trash" %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+<% end %>

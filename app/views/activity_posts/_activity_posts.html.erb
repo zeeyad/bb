@@ -1,7 +1,7 @@
-<% if @cs_activities.empty? %>
+<% if @activity_posts.empty? %>
 	<p class="text-center">There is no CS Activity Post. Please add some!</p>
 <% else %>
-	<% @cs_activities.each do |csactivity| %>
+	<% @activity_posts.each do |csactivity| %>
 		<div class="card">
 			<a href="<%= activity_post_path(csactivity) %>" class="card-body">
 				<h4 class="card-title"><%= "#{csactivity.title}" %> - <small ><%= time_ago_in_words("#{csactivity.created_at}") %> ago </small> </h4>
