@@ -6,6 +6,10 @@ class StaticController < ApplicationController
 		@event_posts = EventPost.order_by_latest
 	end
 
+	def select_new_post_option
+		
+	end
+
 	def search
 		@module_posts = ModulePost.ransack(title_cont: params[:q]).result(distinct: true)
 		@activity_posts = ActivityPost.ransack(title_cont: params[:q]).result(distinct: true)

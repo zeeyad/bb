@@ -4,6 +4,8 @@ describe 'navigate' do
 
   let(:user) { FactoryBot.create(:user) }
 
+  let(:programme_leader) { FactoryBot.create(:programme_leader) }
+
   let(:activity_post) { FactoryBot.create(:activity_post)}
 
   before do
@@ -59,7 +61,8 @@ describe 'navigate' do
   describe 'edit' do
 
   	before do
-      activity_post = FactoryBot.create(:activity_post_1, user_id: user.id)
+      login_as(programme_leader, :scope => :user)
+      activity_post = FactoryBot.create(:activity_post_1, user_id: programme_leader.id)
   	  visit edit_activity_post_path(activity_post)
   	end
 
@@ -68,7 +71,7 @@ describe 'navigate' do
   	end
 
   	it 'can be edited by clicking edit on the page' do
-      activity =  FactoryBot.create(:activity_post, user_id: user.id)
+      activity =  FactoryBot.create(:activity_post, user_id: programme_leader.id)
   	  visit activity_posts_path
   	  click_link("edit_#{activity.id}")
       fill_in 'Title', with: "My Title"
@@ -95,7 +98,7 @@ describe 'navigate' do
   	end
 
   	it 'can be deleted' do
-      login_as(user, :scope => :user)
+      login_as(programme_leader, :scope => :user)
   	  act = FactoryBot.create(:activity_post, user_id: user.id)
   	  visit activity_posts_path
   	  click_link("delete_#{act.id}")

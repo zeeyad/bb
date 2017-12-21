@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :module_posts
   devise_for :users
 
+  get :select_new_post_option, controller: :static
   root to: 'static#homepage'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

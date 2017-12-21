@@ -4,6 +4,8 @@ describe 'navigate' do
 
   let(:user) { FactoryBot.create(:user) }
 
+  let(:programme_leader) { FactoryBot.create(:programme_leader) }
+
   let(:event_post) { FactoryBot.create(:event_post)}
 
   before do
@@ -59,6 +61,7 @@ describe 'navigate' do
   describe 'edit' do
 
   	before do
+      login_as(programme_leader, :scope => :user)
       event_post = FactoryBot.create(:event_post_1, user_id: user.id)
   	  visit edit_event_post_path(event_post)
   	end
@@ -95,7 +98,7 @@ describe 'navigate' do
   	end
 
   	it 'can be deleted' do
-      login_as(user, :scope => :user)
+      login_as(programme_leader, :scope => :user)
   	  act = FactoryBot.create(:event_post, user_id: user.id)
   	  visit event_posts_path
   	  click_link("delete_#{act.id}")

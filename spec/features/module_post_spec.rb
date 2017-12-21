@@ -80,6 +80,7 @@ describe 'navigate' do
 	describe 'edit' do
 
 		before do
+			login_as(programme_leader, :scope => :user)
 			visit edit_module_post_path(module_post)
 		end
 
