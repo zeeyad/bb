@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220183659) do
+ActiveRecord::Schema.define(version: 20171221051126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,22 @@ ActiveRecord::Schema.define(version: 20171220183659) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "cs_activity_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "venue"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.string "slug"
+    t.index ["user_id"], name: "index_cs_activity_posts_on_user_id"
+  end
+
   create_table "cs_event_posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -75,6 +91,32 @@ ActiveRecord::Schema.define(version: 20171220183659) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cs_event_posts_on_user_id"
+  end
+
+  create_table "cs_module_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.string "slug"
+    t.index ["user_id"], name: "index_cs_module_posts_on_user_id"
+  end
+
+  create_table "event_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "venue"
+    t.time "start_time"
+    t.time "end_time"
+    t.bigint "user_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_event_posts_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -126,5 +168,6 @@ ActiveRecord::Schema.define(version: 20171220183659) do
 
   add_foreign_key "activity_posts", "users"
   add_foreign_key "cs_event_posts", "users"
+  add_foreign_key "event_posts", "users"
   add_foreign_key "module_posts", "users"
 end
