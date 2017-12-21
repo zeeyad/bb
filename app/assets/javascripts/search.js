@@ -14,6 +14,10 @@ document.addEventListener("turbolinks:load",function(){
       {
         listLocation: "activity_posts",
         header: "<strong>CS ACTIVITIES POSTS</strong>"
+      },
+      {
+        listLocation: "event_posts",
+        header: "<strong>EVENT POSTS</strong>"
       }
     ],
   	list: {

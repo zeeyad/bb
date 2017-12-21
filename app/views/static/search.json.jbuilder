@@ -13,3 +13,11 @@ json.activity_posts do
   	json.id cs_activity.id
   end
 end
+
+json.event_posts do
+  json.array!(@event_posts) do |event_post|
+    json.title event_post.title
+    json.url event_post_path(event_post)
+    json.id event_post.id
+  end
+end
