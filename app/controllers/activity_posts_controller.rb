@@ -6,7 +6,6 @@ class ActivityPostsController < ApplicationController
   	@cs_activities = ActivityPost.all
   end
 
-
   def new
   	@cs_activity = ActivityPost.new
   end

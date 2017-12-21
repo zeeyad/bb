@@ -9,7 +9,7 @@ class CreateEventPosts < ActiveRecord::Migration[5.1]
       t.time :start_time
       t.time :end_time
       t.references :user, foreign_key: true
-	  t.integer :status, default: 0
+	    t.integer :status, default: 0
       t.timestamps
     end
   end

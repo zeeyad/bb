@@ -1,0 +1,3 @@
+class EventPostPolicy < ApplicationPolicy
+
+end
