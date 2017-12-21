@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActionController::UnknownFormat, with: :search_not_found
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   private
 
   def user_not_authorized
@@ -18,6 +20,11 @@ class ApplicationController < ActionController::Base
   def search_not_found
     flash[:alert] = "No Search Found"
     redirect_to(root_path)  	
+  end
+
+  def record_not_found
+    flash[:alert] = "No Record Found"
+    redirect_to(root_path)    
   end
 
   def configure_permitted_parameters
