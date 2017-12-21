@@ -3,6 +3,7 @@ class StaticController < ApplicationController
 	def homepage
 		@cs_modules = ModulePost.order_by_latest
 		@cs_activities = ActivityPost.order_by_latest
+		@event_posts = EventPost.order_by_latest
 	end
 
 	def search
