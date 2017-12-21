@@ -1,17 +1,17 @@
 <div class="row" id ="listing-post">
 	<div class="col-lg-4">
 	  	<div class="card">
-	      	<h4 class="card-header navbar-dark bg-dark">EVENT</h4>
+	      	<h4 class="card-header navbar-dark bg-dark">ACTIVITY</h4>
 	      	<ul class="list-group list-group-flush">
-	  			<%= render 'event_posts', obj: @event_posts %>
+	  			<%= render 'activity_posts', obj: @activity_posts %>
 	  		</ul>
 	    </div>
 	</div>
 	<div class="col-lg-4">
 	  	<div class="card">
-	      	<h4 class="card-header navbar-dark bg-dark">ACTIVITY</h4>
+	      	<h4 class="card-header navbar-dark bg-dark">EVENT</h4>
 	      	<ul class="list-group list-group-flush">
-	  			<%= render 'activity_posts', obj: @activity_posts %>
+	  			<%= render 'event_posts', obj: @event_posts %>
 	  		</ul>
 	    </div>
 	</div>
