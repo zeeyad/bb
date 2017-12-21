@@ -3,6 +3,10 @@ module ApplicationHelper
   	"active" if current_page?(path)
   end
 
+  def active?(path)
+    "active" if current_page?(path)
+  end
+
   def bootstrap_class_for(flash_type)
     {
         success: "alert-success",
