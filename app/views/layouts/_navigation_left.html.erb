@@ -1,11 +1,12 @@
+<!-- TODO FIX ACTIVE NAV FOR SHOW ACTIONS -->
 <ul class="navbar-nav mr-auto">
-  <li class="<%= active?(activity_posts_path) %> <%= active?(activity_post_path(@activity_post)) if @activity_post %> nav-item">
+  <li class="<%= active?(activity_posts_path) %> <%= active?(activity_post_path(@activity_post)) if (params[:action] == "show" && @activity_post) %> nav-item">
     <a class="nav-link" href="<%= activity_posts_path %>">ACTIVITY</a>
   </li>
-  <li class="<%= active?(event_posts_path) %> <%= active?(event_post_path(@event_post)) if @event_post %> nav-item">
+  <li class="<%= active?(event_posts_path) %> <%= active?(event_post_path(@event_post)) if (params[:action] == "show" && @event_post) %> nav-item">
     <a class="nav-link" href="<%= event_posts_path %>">EVENT</a>
   </li>
-  <li class="<%= active?(module_posts_path) %> <%= active?(module_post_path(@module_post)) if @module_post %> nav-item">
+  <li class="<%= active?(module_posts_path) %> <%= active?(module_post_path(@module_post)) if (params[:action] == "show" && @module_post) %> nav-item">
     <a class="nav-link" href="<%= module_posts_path %>">MODULE</a>
   </li>
 </ul>

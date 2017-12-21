@@ -35,6 +35,10 @@ class ActivityPostsController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   def destroy
     @activity_post.delete
     flash[:alert] = "#{@activity_post.title} was successfully deleted"

@@ -21,6 +21,10 @@ class EventPostsController < ApplicationController
   	end
   end
 
+  def show
+    
+  end
+
   def edit
   	authorize @event_post
   end
