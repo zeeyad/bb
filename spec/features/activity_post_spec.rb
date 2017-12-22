@@ -6,7 +6,7 @@ describe 'navigate' do
 
   let(:programme_leader) { FactoryBot.create(:programme_leader) }
 
-  let(:activity_post) { FactoryBot.create(:activity_post)}
+  let(:activity_post) { FactoryBot.create(:activity_post, user_id: user.id)}
 
   before do
   	login_as(user, :scope => :user)
@@ -27,8 +27,8 @@ describe 'navigate' do
   	end
 
 	it 'has a list of cs module post' do
-	  csactivity1 = FactoryBot.create(:activity_post_1)
-    csactivity2 = FactoryBot.create(:activity_post_2)
+	  csactivity1 = FactoryBot.create(:activity_post_1, user_id: user.id)
+    csactivity2 = FactoryBot.create(:activity_post_2, user_id: user.id)
     visit activity_posts_path
 	  expect(page).to have_content(/ActivityPost1|ActivityPost2/)
 	end

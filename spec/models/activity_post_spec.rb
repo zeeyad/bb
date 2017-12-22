@@ -5,7 +5,7 @@ RSpec.describe ActivityPost, type: :model do
   let(:user) { FactoryBot.create(:user) }
 
   before do
-  	@activty_post = FactoryBot.create(:activity_post)
+  	@activty_post = FactoryBot.create(:activity_post, user_id: user.id)
   end
   
   describe 'creation' do

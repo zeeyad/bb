@@ -4,9 +4,11 @@ describe 'navigate' do
 
   let(:user) { FactoryBot.create(:user) }
 
+  let(:other_user) { FactoryBot.create(:other_user) }
+
   let(:programme_leader) { FactoryBot.create(:programme_leader) }
 
-  let(:event_post) { FactoryBot.create(:event_post)}
+  let(:event_post) { FactoryBot.create(:event_post, user_id: user.id)}
 
   before do
   	login_as(user, :scope => :user)
@@ -27,8 +29,8 @@ describe 'navigate' do
   	end
 
 	it 'has a list of cs module post' do
-	  eventpost1 = FactoryBot.create(:event_post_1)
-	  eventpost2 = FactoryBot.create(:event_post_2)
+	  eventpost1 = FactoryBot.create(:event_post_1, user_id: user.id)
+	  eventpost2 = FactoryBot.create(:event_post_2, user_id: user.id)
 	  visit event_posts_path
 	  expect(page).to have_content(/EventPost1|EventPost2/)
 	end
@@ -82,7 +84,6 @@ describe 'navigate' do
 
     it 'can not be edited by a non-authorized user' do
       logout(:user)
-      other_user = FactoryBot.create(:other_user)
       login_as(other_user, :scope => :user)
       visit edit_event_post_path(event_post)
 

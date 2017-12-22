@@ -24,7 +24,6 @@ describe 'navigate' do
 
     it 'can not be edited by not creator or normal user' do
       logout(:programme_leader)
-      @user = FactoryBot.create(:user)
       login_as(@user, :scope => :user)
       visit edit_module_post_path(@cs_module)
       expect(current_path).to eq(root_path)

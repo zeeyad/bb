@@ -31,8 +31,8 @@ describe 'navigate' do
 		end
 
 		it 'has a list of cs module post' do
-			csmodule1 = FactoryBot.create(:ss_1201)
-	    	csmodule2 = FactoryBot.create(:ss_1202)
+			csmodule1 = FactoryBot.create(:ss_1201, user_id: user.id)
+	    	csmodule2 = FactoryBot.create(:ss_1202, user_id: user.id)
 	    	visit module_posts_path
 			expect(page).to have_content(/Programming|Information/)
 		end

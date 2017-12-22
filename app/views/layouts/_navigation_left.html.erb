@@ -9,4 +9,9 @@
   <li class="<%= active?(module_posts_path) %> <%= active?(module_post_path(@module_post)) if (params[:action] == "show" && @module_post) %> nav-item">
     <a class="nav-link" href="<%= module_posts_path %>">MODULE</a>
   </li>
+
+  <li class="<%= active?(user_imports_path) %> nav-item">
+    <a class="nav-link" href="<%= user_imports_path %>">IMPORT USER</a>
+  </li>
+
 </ul>

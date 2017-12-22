@@ -22,6 +22,7 @@ gem 'ransack', '~> 1.8', '>= 1.8.4'
 gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'sendgrid-ruby', '~> 5.2'
 gem 'activeadmin', '~> 1.2'
+gem 'roo'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

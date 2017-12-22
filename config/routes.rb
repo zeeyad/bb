@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   get :select_new_post_option, controller: :static
   root to: 'static#homepage'
+
+  get 'user_imports', to: 'user_imports#index', as: :user_imports
+  post 'user_imports', to: 'user_imports#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

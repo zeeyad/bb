@@ -7,7 +7,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates_presence_of :username
+  validates :username, presence: true, 
+                    uniqueness: { case_sensitive: false }
 
   # after_create :send_notification
 
