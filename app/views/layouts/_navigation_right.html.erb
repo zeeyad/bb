@@ -4,13 +4,13 @@
 	<%= form.text_field :q, placeholder: "Search", data: { behavior: "autocomplete" }, class: "form-control mr-sm-2" %>
 	<% end %>
 
-<!--   <li class="nav-item dropdown">
-    <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-    <div class="dropdown-menu dropdown-menu-right">
-     <a class="dropdown-item" href="<%= new_module_post_path %>">Post Module</a>
-     <a class="dropdown-item" href="<%= new_activity_post_path %>">Post Activity</a>
+  <li class="nav-item dropdown" data-behavior="notifications">
+    <a class="nav-link" data-behavior="notification-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bell-o" aria-hidden="true"></i><span data-behavior="unread-count"></span></a>
+    <div class="dropdown-menu dropdown-menu-right" data-behavior="notification-items">
+
     </div>
-  </li> -->
-  <%= link_to "", select_new_post_option_path, class: "btn-logout nav-link fa fa-pencil-square-o" %>
-  <%= link_to "", destroy_user_session_path, method: :delete, class: "btn-logout nav-link fa fa-sign-out" %>
+  </li>
+
+  <%= link_to "", select_new_post_option_path, class: "btn-logout nav-item nav-link fa fa-pencil-square-o" %>
+  <%= link_to "", destroy_user_session_path, method: :delete, class: "btn-logout nav-item nav-link fa fa-sign-out" %>
 </ul>

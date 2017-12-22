@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources :event_posts
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get :search, controller: :static

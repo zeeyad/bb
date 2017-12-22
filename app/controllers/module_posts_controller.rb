@@ -14,6 +14,9 @@ class ModulePostsController < ApplicationController
   	@module_post = ModulePost.new(module_post_params)
     @module_post.user_id = current_user.id
   	if @module_post.save
+      (User.all - [current_user]).each do |user|
+        Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @module_post )
+      end
       flash[:success] = "#{@module_post.title} was successfully created"
   		redirect_to module_posts_path
   	else
