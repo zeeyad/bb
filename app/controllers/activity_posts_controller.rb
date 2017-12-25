@@ -1,9 +1,19 @@
 class ActivityPostsController < ApplicationController
 
-  before_action :set_activity_post, only: [:edit, :update, :show, :destroy]
+  before_action :set_activity_post, only: [:edit, :update, :show, :destroy, :approve, :reject]
 
   def index
-  	@activity_posts = ActivityPost.all
+  	@activity_posts = ActivityPost.approved.order(updated_at: :DESC)
+  end
+
+  def approve
+    @activity_post.approved!
+    redirect_to activity_posts_path, notice: "The activity post has been approved"
+  end
+
+  def reject
+    @activity_post.rejected!
+    redirect_to user_dashboards_path, notice: "The activity post has been rejected"
   end
 
   def new

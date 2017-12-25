@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+  def admin_types
+    ['ProgrammeLeader']
+  end
+
   private
 
   def user_not_authorized

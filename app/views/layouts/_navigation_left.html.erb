@@ -9,6 +9,10 @@
   <li class="<%= active?(module_posts_path) %> <%= active?(module_post_path(@module_post)) if (params[:action] == "show" && @module_post) %> nav-item">
     <a class="nav-link" href="<%= module_posts_path %>">MODULE</a>
   </li>
+
+  <li class="<%= active?(user_dashboards_path) %> nav-item">
+    <a class="nav-link" href="<%= user_dashboards_path %>">DASHBOARD</a>
+  </li>
   
   <% if programmeleader? %>
    <li class="nav-item dropdown">

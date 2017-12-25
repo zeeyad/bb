@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :user_dashboards
   resources :event_posts
   resources :notifications do
     collection do
@@ -8,7 +9,12 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get :search, controller: :static
-  resources :activity_posts
+  resources :activity_posts do
+    member do
+      get :approve
+      get :reject
+    end
+  end
   resources :module_posts
   devise_for :users
 

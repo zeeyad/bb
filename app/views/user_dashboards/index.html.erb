@@ -1,0 +1,19 @@
+<div class="container post-container">
+	<%#= render 'shared/messages' %>
+	<div class="row row-offcanvas row-offcanvas-right">
+		<div class="col-12">
+			<% if admin_types.include?(current_user.try(:type)) %>
+				<%= render 'programme_leader' %>
+			<% else %>
+
+			<% end %>
+		</div>
+	</div>
+
+	<hr>
+
+	<footer>
+		<p>&copy; UBD SS-4301; Developed by Zeeyad - 2017</p>
+	</footer>
+
+</div>

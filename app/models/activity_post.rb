@@ -2,9 +2,9 @@ class ActivityPost < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
   
-  scope :submitted, ->{ where.not(status: 0)}
-  scope :approved, ->{ where.not(status: 1)}
-  scope :rejected, ->{ where.not(status: 2)}
+  scope :submitted, ->{ where(status: 0)}
+  scope :approved, ->{ where(status: 1)}
+  scope :rejected, ->{ where(status: 2)}
 
   belongs_to :user
   after_initialize :set_defaults

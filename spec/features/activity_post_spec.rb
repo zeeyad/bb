@@ -6,7 +6,7 @@ describe 'navigate' do
 
   let(:programme_leader) { FactoryBot.create(:programme_leader) }
 
-  let(:activity_post) { FactoryBot.create(:activity_post, user_id: user.id)}
+  let(:activity_post) { FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)}
 
   before do
   	login_as(user, :scope => :user)
@@ -27,8 +27,9 @@ describe 'navigate' do
   	end
 
 	it 'has a list of cs module post' do
-	  csactivity1 = FactoryBot.create(:activity_post_1, user_id: user.id)
-    csactivity2 = FactoryBot.create(:activity_post_2, user_id: user.id)
+    login_as(programme_leader, :scope => :user)
+	  csactivity1 = FactoryBot.create(:activity_post_1, user_id: programme_leader.id, status: 1)
+    csactivity2 = FactoryBot.create(:activity_post_2, user_id: programme_leader.id, status: 1)
     visit activity_posts_path
 	  expect(page).to have_content(/ActivityPost1|ActivityPost2/)
 	end
@@ -62,7 +63,7 @@ describe 'navigate' do
 
   	before do
       login_as(programme_leader, :scope => :user)
-      activity_post = FactoryBot.create(:activity_post_1, user_id: programme_leader.id)
+      activity_post = FactoryBot.create(:activity_post_1, user_id: programme_leader.id, status: 1)
   	  visit edit_activity_post_path(activity_post)
   	end
 
@@ -71,7 +72,7 @@ describe 'navigate' do
   	end
 
   	it 'can be edited by clicking edit on the page' do
-      activity =  FactoryBot.create(:activity_post, user_id: programme_leader.id)
+      activity =  FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)
   	  visit activity_posts_path
   	  click_link("edit_#{activity.id}")
       fill_in 'Title', with: "My Title"
@@ -99,7 +100,7 @@ describe 'navigate' do
 
   	it 'can be deleted' do
       login_as(programme_leader, :scope => :user)
-  	  act = FactoryBot.create(:activity_post, user_id: user.id)
+  	  act = FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)
   	  visit activity_posts_path
   	  click_link("delete_#{act.id}")
   	  expect(page.status_code).to eq(200)
