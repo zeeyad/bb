@@ -16,7 +16,7 @@ class ActivityPost < ApplicationRecord
 
   	def check_time
   	  if ( start_date == end_date ) && ( start_time > end_time)
-  		  errors.add(:end_time, "can't be in the past")
+  		  errors.add(:end_time, "can't be in the past while start date equals to end date")
   	  end
   	end
 
