@@ -9,9 +9,17 @@
   <li class="<%= active?(module_posts_path) %> <%= active?(module_post_path(@module_post)) if (params[:action] == "show" && @module_post) %> nav-item">
     <a class="nav-link" href="<%= module_posts_path %>">MODULE</a>
   </li>
-
-  <li class="<%= active?(user_imports_path) %> nav-item">
-    <a class="nav-link" href="<%= user_imports_path %>">IMPORT USER</a>
-  </li>
+  
+  <% if programmeleader? %>
+   <li class="nav-item dropdown">
+      <a class="<%= active?(user_imports_path) %> nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ADMIN
+      </a>
+      <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="<%= user_imports_path %>">IMPORT USER</a>
+        <a class="dropdown-item" href="<%= new_admin_user_session_path %>">DASHBOARD</a>
+      </div>
+    </li>
+  <% end %>
 
 </ul>

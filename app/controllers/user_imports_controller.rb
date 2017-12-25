@@ -2,6 +2,7 @@ class UserImportsController < ApplicationController
 
   # TODO - TESTING 
   def index
+    authorize :user_import
     @user_import = UserImport.new
   end
 

@@ -1,4 +1,12 @@
 module ApplicationHelper
+  def admin_types
+    ['ProgrammeLeader']
+  end
+
+  def programmeleader?
+    admin_types.include?(current_user.type) 
+  end
+
   def active?(path)
   	"active" if current_page?(path)
   end
