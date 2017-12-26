@@ -8,7 +8,7 @@ class ActivityPostsController < ApplicationController
 
   def approve
     @activity_post.approved!
-    redirect_to activity_posts_path, notice: "The activity post has been approved"
+    redirect_to user_dashboards_path, notice: "The activity post has been approved"
   end
 
   def reject

@@ -1,0 +1,20 @@
+<div class="col-md-12">
+	<h1 align="center">Activity Post ( <%= @pending_activities.count %> )</h1><br>
+</div>
+
+<% @pending_activities.each do |activitypost| %>
+	<div class="col-lg-4">
+	  	<div class="card">
+	      	<h4 class="card-header navbar-dark bg-dark"><%= activitypost.title %></h4>
+		    <a href="<%= activity_post_path(activitypost) %>">
+			  <li class="list-group-item"><%= truncate(activitypost.description, length: 280) %></li>
+		    </a>
+		    <div class="card-footer">
+				<%= link_to 'Approve', approve_activity_post_path(activitypost), class: "btn btn-primary btn-block", id: "approve_#{activitypost.id}", data: {confirm: "Are you sure you want to approve?"} %>
+				<%= link_to 'Review', edit_activity_post_path(activitypost), class: "btn btn-success btn-block", id: "edit_#{activitypost.id}" %>
+				<%= link_to 'Reject', reject_activity_post_path(activitypost), class: "btn btn-danger btn-block", id: "reject_#{activitypost.id}", data: {confirm: "Are you sure you want to reject?"} %>
+			</div>
+	    </div>
+	    <br>
+	</div>
+<% end %>

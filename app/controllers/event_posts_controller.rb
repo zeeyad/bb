@@ -1,9 +1,19 @@
 class EventPostsController < ApplicationController
 
-  before_action :set_event_post, only: [:edit, :update, :show, :destroy]
+  before_action :set_event_post, only: [:edit, :update, :show, :destroy, :approve, :reject]
 
   def index
 	  @event_posts = EventPost.all  	
+  end
+
+  def approve
+    @event_post.approved!
+    redirect_to user_dashboards_path, notice: "The event post has been approved"
+  end
+
+  def reject
+    @event_post.rejected!
+    redirect_to user_dashboards_path, notice: "The event post has been rejected"
   end
 
   def new

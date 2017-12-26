@@ -14,11 +14,11 @@ class ActivityPost < ApplicationRecord
   validates_presence_of :start_date, :end_date, :start_time, :end_time
 
 
-  	def check_time
-  	  if ( start_date == end_date ) && ( start_time > end_time)
-  		  errors.add(:end_time, "can't be in the past while start date equals to end date")
-  	  end
-  	end
+	def check_time
+	  if ( start_date == end_date ) && ( start_time > end_time)
+		  errors.add(:end_time, "can't be in the past while start date equals to end date")
+	  end
+	end
 
   private
 

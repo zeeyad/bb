@@ -1,0 +1,19 @@
+<div class="col-md-12">
+	<h1 align="center">Event Post ( <%= @pending_events.count %> )</h1><br>
+</div>
+<% @pending_events.each do |eventpost| %>
+	<div class="col-lg-4">
+	  	<div class="card">
+	      	<h4 class="card-header navbar-dark bg-dark"><%= eventpost.title %></h4>
+		    <a href="<%= event_post_path(eventpost) %>">
+			  <li class="list-group-item"><%= truncate(eventpost.description, length: 280) %></li>
+		    </a>
+		    <div class="card-footer">
+				<%= link_to 'Approve', approve_event_post_path(eventpost), class: "btn btn-primary btn-block", id: "approve_#{eventpost.id}", data: {confirm: "Are you sure you want to approve?"} %>
+				<%= link_to 'Review', edit_event_post_path(eventpost), class: "btn btn-success btn-block", id: "edit_#{eventpost.id}" %>
+				<%= link_to 'Reject', reject_event_post_path(eventpost), class: "btn btn-danger btn-block", id: "reject_#{eventpost.id}", data: {confirm: "Are you sure you want to reject?"} %>
+			</div>
+	    </div>
+	    <br>
+	</div>
+<% end %>

@@ -1,9 +1,19 @@
 class ModulePostsController < ApplicationController
 
-  before_action :set_module_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_module_post, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   def index
   	@module_posts = ModulePost.all
+  end
+
+  def approve
+    @module_post.approved!
+    redirect_to user_dashboards_path, notice: "The module post has been approved"
+  end
+
+  def reject
+    @module_post.rejected!
+    redirect_to user_dashboards_path, notice: "The module post has been rejected"
   end
 
   def new

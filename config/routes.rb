@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :user_dashboards
-  resources :event_posts
+  resources :event_posts do
+    member do
+      get :approve
+      get :reject
+    end
+  end
   resources :notifications do
     collection do
       post :mark_as_read
@@ -15,7 +20,12 @@ Rails.application.routes.draw do
       get :reject
     end
   end
-  resources :module_posts
+  resources :module_posts do
+    member do
+      get :approve
+      get :reject
+    end
+  end
   devise_for :users
 
   get :select_new_post_option, controller: :static
