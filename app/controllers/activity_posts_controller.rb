@@ -12,8 +12,8 @@ class ActivityPostsController < ApplicationController
   end
 
   def reject
-    @activity_post.rejected!
-    redirect_to user_dashboards_path, notice: "The activity post has been rejected"
+    flash[:notice] = "The activity post has been removed"
+    redirect_to action: "index"
   end
 
   def new

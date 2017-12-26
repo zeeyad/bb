@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def search_not_found
-    flash[:alert] = "No Search Found"
+    flash[:alert] = "Unrecognized Format"
     redirect_to(root_path)  	
   end
 

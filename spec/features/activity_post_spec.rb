@@ -92,13 +92,13 @@ describe 'navigate' do
 
   end
 
-  describe 'delete' do
+  describe 'reject' do
 
   	before do
   	  visit activity_posts_path
   	end
 
-  	it 'can be deleted' do
+  	it 'can be rejected' do
       login_as(programme_leader, :scope => :user)
   	  act = FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)
   	  visit activity_posts_path

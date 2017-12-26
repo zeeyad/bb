@@ -1,18 +1,20 @@
 <% if @activity_posts.empty? %>
 	<p class="text-center">There is no Activity Post. Please add some!</p>
 <% else %>
-	<% @activity_posts.each do |csactivity| %>
+	<% @activity_posts.each do |activitypost| %>
 		<div class="card">
-			<a href="<%= activity_post_path(csactivity) %>" class="view-post card-body">
-				<h4 class="card-title"><%= "#{csactivity.title}" %> - <small ><%= time_ago_in_words("#{csactivity.created_at}") %> ago </small> </h4>
-				<p class="card-text"><%= truncate(csactivity.description, length: 280) %></p>
+			<a href="<%= activity_post_path(activitypost) %>" class="view-post card-body">
+				<h4 class="card-title"><%= "#{activitypost.title}" %> - <small ><%= time_ago_in_words("#{activitypost.created_at}") %> ago </small> </h4>
+				<p class="card-text">Date: <%= activitypost.date_in_words %> ( <%= activitypost.get_name_of_day %> )</p>
+				<p>Duration: <%= activitypost.duration_of_days %> day</p>
+				<p class="card-text"><%= truncate(activitypost.description, length: 280) %></p>
 				<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
-				<p>- Posted by <%= csactivity.user.name %></p>
+				<p>- Posted by <%= activitypost.user.name.titleize %></p>
 			</a>
-			<% if policy(csactivity).update? %>
+			<% if policy(activitypost).update? %>
 				<div class="card-footer">
-					<%= link_to '', edit_activity_post_path(csactivity), class: "btn btn-outline-secondary fa fa-pencil-square-o", id: "edit_#{csactivity.id}" %>		
-					<%= link_to '', activity_post_path(csactivity), method: :delete, id: "delete_#{csactivity.id}", data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger fa fa-trash" %>
+					<%= link_to '', edit_activity_post_path(activitypost), class: "btn btn-outline-secondary fa fa-pencil-square-o", id: "edit_#{activitypost.id}" %>		
+					<%= link_to '', reject_activity_post_path(activitypost), id: "delete_#{activitypost.id}", data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger fa fa-trash" %>
 				</div>
 			<% end %>
 		</div>
