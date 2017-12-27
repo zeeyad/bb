@@ -12,6 +12,7 @@ class ActivityPostsController < ApplicationController
   end
 
   def reject
+    @activity_post.rejected!
     flash[:notice] = "The activity post has been removed"
     redirect_to action: "index"
   end
@@ -21,8 +22,10 @@ class ActivityPostsController < ApplicationController
   end
 
   def create
-  	@activity_post = ActivityPost.new(activity_post_params)
-  	@activity_post.user_id = current_user.id
+    params[:activity_post].parse_time_select! :start_time
+    params[:activity_post].parse_time_select! :end_time
+    @activity_post = ActivityPost.new(activity_post_params)
+    @activity_post.user_id = current_user.id
   	if @activity_post.save
       flash[:success] = "#{@activity_post.title} was successfully created"
   		redirect_to activity_posts_path
@@ -37,6 +40,8 @@ class ActivityPostsController < ApplicationController
 
   def update
     authorize @activity_post
+    params[:activity_post].parse_time_select! :start_time
+    params[:activity_post].parse_time_select! :end_time
     if @activity_post.update(activity_post_params)
       flash[:success] = "#{@activity_post.title} was successfully updated"
       redirect_to activity_posts_path

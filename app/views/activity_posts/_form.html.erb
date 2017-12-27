@@ -11,12 +11,12 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :start_date %>
+    <%= f.label :start_date %> ( Format: mm/dd/yyyy )
     <%= f.date_field :start_date, class: "form-control" %>
   </div>
 
   <div class="form-group">
-    <%= f.label :end_date %>
+    <%= f.label :end_date %> ( Format: mm/dd/yyyy )
     <%= f.date_field :end_date, class: "form-control" %>
   </div>
 
@@ -27,14 +27,31 @@
 
   <div class="form-group">
     <%= f.label :start_time %>
-    <%= f.time_field :start_time, class: "form-control", minute_step: 15 %>
+    <%= f.time_select :start_time,
+  :combined => true,
+  :minute_interval => 15,
+  :time_separator => "",
+  :start_hour => 10,
+  :start_minute => 30,
+  :end_hour => 14,
+  :end_minute => 30,
+  :ampm => true
+%>
   </div>
-
   <div class="form-group">
     <%= f.label :end_time %>
-    <%= f.time_select :end_time, class: "form-control", minute_step: 15 %>
+    <%= f.time_select :end_time,
+  :combined => true,
+  :default => Time.now.change(:hour => 11, :min => 30),
+  :minute_interval => 15,
+  :time_separator => "",
+  :start_hour => 10,
+  :start_minute => 30,
+  :end_hour => 14,
+  :end_minute => 30,
+  :ampm => true
+%>
   </div>
-
   <%= render partial: 'shared/status', locals: { f: f } if current_user.type == 'ProgrammeLeader' %>
 
   <%= f.submit "Save", class: "btn btn-primary btn-block" %>

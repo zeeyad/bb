@@ -9,6 +9,7 @@ class ActivityPost < ApplicationRecord
   belongs_to :user
   after_initialize :set_defaults
   validate :check_time
+  validate :check_start_date_and_end_date
   validates_presence_of :title, :description, :venue
 
   validates_presence_of :start_date, :end_date, :start_time, :end_time
@@ -16,7 +17,7 @@ class ActivityPost < ApplicationRecord
 # TODO - MOVE CHECK_TIME METHOD TO PRIVATE
 	def check_time
 	  if ( start_date == end_date ) && ( start_time > end_time)
-		  errors.add(:end_time, "can't be in the past while start date equals to end date")
+		  errors.add(:start_time, "can not be earlier than end time considering it is on the same day")
 	  end
 	end
 
@@ -39,8 +40,14 @@ class ActivityPost < ApplicationRecord
   private
 
   	def set_defaults
-  	  self.start_date ||= Date.today - 6.days
+  	  self.start_date ||= Date.today
+      self.end_date ||= Date.today + 3.days
   	end
 
+    def check_start_date_and_end_date
+      if (start_date && end_date != nil ) && (start_date > end_date)
+        errors.add(:start_date, "can not be earlier than end date")
+      end
+    end
 
 end
