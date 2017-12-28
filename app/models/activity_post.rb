@@ -6,7 +6,7 @@ class ActivityPost < ApplicationRecord
   scope :approved, ->{ where(status: 1)}
   scope :rejected, ->{ where(status: 2)}
 
-  scope :not_passed, ->{ where("end_date >= ?", Date.today)}
+  scope :not_passed, ->{ where("start_date >= ?", Date.today)}
   scope :desc, ->{ order(updated_at: :DESC)}
 
   belongs_to :user

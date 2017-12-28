@@ -22,9 +22,9 @@ module ApplicationHelper
 
   def bootstrap_glyphs_icon(flash_type)
     {
-        success: "fa-check-circle-o",
-        error: "fa-check-circle-o",
-        alert: "fa-exclamation-triangle",
+        success: "",
+        error: "",
+        alert: "",
         notice: "fa-info-circle"
     }[flash_type.to_sym] || 'glyphicon-screenshot'
   end

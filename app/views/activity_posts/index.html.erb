@@ -3,14 +3,12 @@
 	<div class="row">
 		<div class="col-md-8 offset-md-2 section-module-column">
 
-	    	<h1 align="center">ACTIVITY POSTS</h1>
+	    	<h1 align="center">ACTIVITY POSTS </h1>
 	    	<div class="mx-auto" style="width: 50px;">
-		    	<%= link_to 'Create', new_activity_post_path, class: 'select-post btn btn-outline-primary' %>
+		    	<%= link_to "", new_activity_post_path, class: "select-post btn btn-outline-primary fa fa-pencil-square-o" %>
 		    </div>
 	    	<br/>
 			<%= render 'activity_posts', obj: @activity_posts %>
-			
-
 		</div>
 	</div>
   </div>

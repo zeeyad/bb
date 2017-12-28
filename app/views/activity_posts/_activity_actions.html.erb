@@ -1,0 +1,4 @@
+<div class="btn-group" >
+	<%= link_to '', edit_activity_post_path(obj), class: "btn btn-outline-success fa fa-pencil-square-o", id: "edit_#{obj.id}" %>		
+		<%= link_to '', reject_activity_post_path(obj), id: "delete_#{obj.id}", data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger fa fa-trash" %>
+</div>

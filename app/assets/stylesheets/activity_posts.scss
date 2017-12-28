@@ -1,3 +1,7 @@
-.custom-table-header {
-	color: white;
+.custom-card-border {
+  border-color: #7f7f7f;
+}
+
+.custom-table-header, .custom-table-header td{
+  border-color: black;
 }

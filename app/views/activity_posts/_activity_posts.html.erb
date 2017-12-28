@@ -2,20 +2,11 @@
 	<p class="text-center">There is no Activity Post. Please add some!</p>
 <% else %>
 	<% @activity_posts.each do |activitypost| %>
-		<div class="card">
+		<div class="card custom-card-border">
 			<div class="view-post card-body">
-				<a href="<%= activity_post_path(activitypost) %>" class="view-post">
-					<h4 class="card-title"><%= "#{activitypost.title}" %> </h4>
-					<p class="card-text"><%= truncate(activitypost.description, length: 280) %></p>
-					<%= render 'table_posts', obj: activitypost %>
-					<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
-					<p><%= activitypost.user.name.titleize %> posted <i ><%= time_ago_in_words("#{activitypost.created_at}") %> ago </i></p>
-				</a>
+				<%= render 'activity_details', obj: activitypost %>
 				<% if policy(activitypost).update? %>
-					<div class="btn-group" >
-				    	<%= link_to '', edit_activity_post_path(activitypost), class: "btn btn-outline-secondary fa fa-pencil-square-o", id: "edit_#{activitypost.id}" %>		
-							<%= link_to '', reject_activity_post_path(activitypost), id: "delete_#{activitypost.id}", data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger fa fa-trash" %>
-				    </div>
+					<%= render 'activity_actions', obj: activitypost %>
 			    <% end %>
 			</div>
 		</div>

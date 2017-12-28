@@ -1,5 +1,5 @@
-<table class="table table-sm table-bordered">
-  <thead class="table-inverse bg-dark custom-table-header">
+<table class="table table-sm table-bordered custom-table-header">
+  <thead class="thead-dark">
     <tr>
       <th>Date</th>
       <th>Day</th>
@@ -11,7 +11,7 @@
     <tr>
       <td><%= obj.date_in_words %></td>
       <td><%= obj.get_name_of_day %></td>
-      <td><%= obj.duration_of_days %> days</td>
+      <td><%= pluralize(obj.duration_of_days, 'day', 'days') %></td>
       <td><%= obj.time_in_words %></td>
     </tr>
   </tbody>
