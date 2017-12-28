@@ -1,0 +1,37 @@
+<section id="section-module">
+  <div class="container">
+	<div class="row">
+		<div class="col-md-8 offset-md-2 section-module-column">
+
+	    	<h1 align="center">ACTIVITY POSTS ARCHIVE</h1>
+	    	<br>
+	    	<% if @past_activity_posts.empty? %>
+				<p class="text-center">There is no Activity Post. Please add some!</p>
+			<% else %>
+		    	<table class="table table-sm table-bordered custom-table-header ">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th>Title</th>
+				      <th>Start Date</th>
+				      <th>End Date</th>
+				      <th>Day</th>
+				      <th>Description</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <% @past_activity_posts.each do |activitypost| %>
+					    <tr>
+					      <td><%= link_to activitypost.title, activity_post_path(activitypost), style: "color:blue;" %></td>
+					      <td><%= activitypost.date_in_words %></td>
+					      <td><%= activitypost.end_date_in_words %></td>
+					      <td><%= activitypost.get_name_of_day %></td>
+					      <td><%= activitypost.description %></td>
+					    </tr>
+					<% end %>
+				  </tbody>
+				</table>
+			<% end %>
+	    </div>
+	</div>
+  </div>
+</section>

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       get :approve
       get :reject
     end
+    collection do
+      get :past_posts
+    end
   end
   resources :module_posts do
     member do

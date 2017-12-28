@@ -7,6 +7,7 @@ class ActivityPost < ApplicationRecord
   scope :rejected, ->{ where(status: 2)}
 
   scope :not_passed, ->{ where("start_date >= ?", Date.today)}
+  scope :passed, ->{ where("end_date < ?", Date.today)}
   scope :desc, ->{ order(updated_at: :DESC)}
 
   belongs_to :user
@@ -26,6 +27,10 @@ class ActivityPost < ApplicationRecord
 
   def date_in_words
     start_date.strftime("%d %B %Y")
+  end
+
+  def end_date_in_words
+    end_date.strftime("%d %B %Y")
   end
 
   def get_name_of_day

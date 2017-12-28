@@ -69,6 +69,21 @@ end
 
 10.times do |csactivitypost|
 	ActivityPost.create( 
+		title: "Hackathon Marathon # #{csactivitypost}",
+		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
+			Praesent vitae finibus libero. ",
+		start_date: Date.today - 10.days,
+		end_date: Date.today - 7.days,
+		start_time: Time.now,
+		end_time: Time.now + (60 * 60 * 72), 
+		venue: "Multi-Purpose Hall",
+		status: 1,
+		user_id: @user.id)
+end
+
+10.times do |csactivitypost|
+	ActivityPost.create( 
 		title: "CyberSecurity Challenge # #{csactivitypost}",
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
