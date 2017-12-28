@@ -1,0 +1,13 @@
+<div class="card custom-card-border">
+	<div class="text-center card-body">
+		<h2 align="center">ACTIVITY POSTS </h2>
+    	<div class="mx-auto" style="width: 50px;">
+	    	<%= link_to "", new_activity_post_path, class: "select-post btn btn-outline-primary fa fa-pencil-square-o" %>
+	    </div>
+		<%= image_tag("bot.png", width: "200") %>
+	    <br>
+		<p><%= current_user.name.titleize %></p>
+		<p>Posts submitted: <%= current_user.activity_posts.count %></p>
+		<p>Posts approved: <%= current_user.activity_posts.approved.count %></p>
+	</div>
+</div>

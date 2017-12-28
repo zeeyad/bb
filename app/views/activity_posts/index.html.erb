@@ -1,13 +1,10 @@
 <section id="section-module">
   <div class="container">
 	<div class="row">
-		<div class="col-md-8 offset-md-2 section-module-column">
-
-	    	<h1 align="center">ACTIVITY POSTS </h1>
-	    	<div class="mx-auto" style="width: 50px;">
-		    	<%= link_to "", new_activity_post_path, class: "select-post btn btn-outline-primary fa fa-pencil-square-o" %>
-		    </div>
-	    	<br/>
+		<div class="col-md-3 section-new-column">
+			<%= render 'activity_sidebar' %>
+		</div>
+		<div class="col-md-7 section-module-column">
 			<%= render 'activity_posts', obj: @activity_posts %>
 			<%= link_to "Activity Posts Archive", past_posts_activity_posts_path, class: "btn btn-outline-secondary" %>
 		</div>

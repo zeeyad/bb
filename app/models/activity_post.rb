@@ -1,7 +1,9 @@
 class ActivityPost < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
-  
+
+  mount_uploader :image, ImageUploader
+
   scope :submitted, ->{ where(status: 0)}
   scope :approved, ->{ where(status: 1)}
   scope :rejected, ->{ where(status: 2)}
