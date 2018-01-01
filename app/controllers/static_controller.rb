@@ -10,6 +10,10 @@ class StaticController < ApplicationController
 		
 	end
 
+	def about
+		
+	end
+
 	def search
 		@module_posts = ModulePost.ransack(title_cont: params[:q]).result(distinct: true)
 		@activity_posts = ActivityPost.ransack(title_cont: params[:q]).result(distinct: true)

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get :select_new_post_option, controller: :static
+  get :about, controller: :static
   root to: 'static#homepage'
 
   get 'user_imports', to: 'user_imports#index', as: :user_imports
