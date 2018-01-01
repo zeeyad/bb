@@ -1,11 +1,11 @@
 <section id="section-module">
   <div class="container">
 	<div class="row">
-		<div class="col-md-8 offset-md-2 section-module-column">
+		<div class="col-md-10 section-module-column archive-posts">
 
 	    	<h1 align="center">ACTIVITY POSTS ARCHIVE</h1>
 	    	<br>
-	    	<% if @past_activity_posts.empty? %>
+	    	<% if @archive_activity_posts.empty? %>
 				<p class="text-center">There is no Activity Post. Please add some!</p>
 			<% else %>
 		    	<table class="table table-sm table-bordered custom-table-header ">
@@ -19,7 +19,7 @@
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <% @past_activity_posts.each do |activitypost| %>
+				    <% @archive_activity_posts.each do |activitypost| %>
 					    <tr>
 					      <td><%= link_to activitypost.title, activity_post_path(activitypost), style: "color:blue;" %></td>
 					      <td><%= activitypost.date_in_words %></td>

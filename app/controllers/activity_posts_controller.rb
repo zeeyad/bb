@@ -6,8 +6,8 @@ class ActivityPostsController < ApplicationController
   	@activity_posts = ActivityPost.approved.not_passed.desc
   end
 
-  def past_posts
-    @past_activity_posts = ActivityPost.approved.passed
+  def archive_posts
+    @archive_activity_posts = ActivityPost.approved.passed
   end
 
   def approve

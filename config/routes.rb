@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       get :reject
     end
     collection do
-      get :past_posts
+      get :archive_posts
     end
   end
   resources :module_posts do
