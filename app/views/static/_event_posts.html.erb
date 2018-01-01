@@ -1,9 +1,11 @@
 <% if obj.empty? %>
-  <li class="list-group-item">No Posts</li>
+  <li class="list-group-item">No New Posts</li>
 <% else %>
   <% obj.each do |eventpost| %>
-    <a href="<%= event_post_path(eventpost) %>">
-	  <li class="list-group-item"><%= eventpost.title %></li>
-    </a>
+    <div class="card">
+	  <a href="<%= event_post_path(eventpost) %>">
+		<li class="view-post list-group-item"><%= eventpost.title %></li>
+	  </a>
+	</div>
   <% end %>
 <% end %>

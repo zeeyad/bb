@@ -2,8 +2,8 @@ class StaticController < ApplicationController
 
 	def homepage
 		@module_posts = ModulePost.order_by_latest
-		@activity_posts = ActivityPost.order_by_latest
-		@event_posts = EventPost.order_by_latest
+		@activity_posts = ActivityPost.order_by_latest_and_not_passed
+		@event_posts = EventPost.order_by_latest_and_not_passed
 	end
 
 	def select_new_post_option

@@ -1,9 +1,11 @@
 <% if obj.empty? %>
-  <li class="list-group-item">No Posts</li>
+  <li class="list-group-item">No New Posts</li>
 <% else %>
   <% obj.each do |modulepost| %>
-    <a href="<%= module_post_path(modulepost) %>">
-	  <li class="list-group-item"><%= modulepost.title %></li>
-    </a>
+  	<div class="card">
+      <a href="<%= module_post_path(modulepost) %>">
+	    <li class="view-post list-group-item"><%= modulepost.title %></li>
+      </a>
+    </div>
   <% end %>
 <% end %>

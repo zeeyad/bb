@@ -58,8 +58,8 @@ puts "30 module post has been created for normal user"
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -88,8 +88,8 @@ end
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -103,8 +103,8 @@ end
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -120,8 +120,8 @@ puts "30 activity post has been created for normal user"
 		description: "#{eventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -135,8 +135,8 @@ end
 		description: "#{eventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -150,8 +150,8 @@ end
 		description: "#{eventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -199,8 +199,8 @@ puts "30 module post has been created for programme leader user"
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -215,8 +215,8 @@ end
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -230,8 +230,8 @@ end
 		description: "#{csactivitypost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -247,8 +247,8 @@ puts "30 activity post has been created for programme leader user"
 		description: "#{eventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -262,8 +262,8 @@ end
 		description: "#{eventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",
@@ -277,8 +277,8 @@ end
 		description: "#{eventpost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero.",
-		start_date: Date.today,
-		end_date: Date.today + 3.days,
+		start_date: Date.today + 30.days,
+		end_date: Date.today + 33.days,
 		start_time: Time.now,
 		end_time: Time.now + (60 * 60 * 72), 
 		venue: "Multi-Purpose Hall",

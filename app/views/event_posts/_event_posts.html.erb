@@ -6,7 +6,6 @@
 			<a href="<%= event_post_path(csevent) %>" class="view-post card-body">
 				<h4 class="card-title"><%= "#{csevent.title}" %> - <small ><%= time_ago_in_words("#{csevent.created_at}") %> ago </small> </h4>
 				<p class="card-text"><%= truncate(csevent.description, length: 280) %></p>
-				<%#= image_tag(csmodule.picture.url, :size => '200x200') if csmodule.picture? %>
 				<p>- Posted by <%= csevent.user.name %></p>
 			</a>
 			<% if policy(csevent).update? %>
