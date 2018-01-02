@@ -3,7 +3,11 @@ class EventPostsController < ApplicationController
   before_action :set_event_post, only: [:edit, :update, :show, :destroy, :approve, :reject]
 
   def index
-	  @event_posts = EventPost.all  	
+	  @event_posts = EventPost.approved.not_passed.desc  	
+  end
+
+  def archive_posts
+    @archive_event_posts = EventPost.approved.passed
   end
 
   def approve
@@ -63,6 +67,6 @@ class EventPostsController < ApplicationController
 
     def event_params
       params.require(:event_post).permit(:title, :description, :start_date, :end_date, :start_time,
-  	  											:end_time, :venue, :status)
+  	  											:end_time, :venue, :status, :image)
     end
 end

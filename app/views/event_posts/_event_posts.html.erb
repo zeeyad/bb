@@ -1,19 +1,15 @@
 <% if @event_posts.empty? %>
-	<p class="text-center">There is no CS Event Post. Please add some!</p>
+	<p class="text-center">There is no Event Post. Please add some!</p>
 <% else %>
-	<% @event_posts.each do |csevent| %>
-		<div class="card">
-			<a href="<%= event_post_path(csevent) %>" class="view-post card-body">
-				<h4 class="card-title"><%= "#{csevent.title}" %> - <small ><%= time_ago_in_words("#{csevent.created_at}") %> ago </small> </h4>
-				<p class="card-text"><%= truncate(csevent.description, length: 280) %></p>
-				<p>- Posted by <%= csevent.user.name %></p>
-			</a>
-			<% if policy(csevent).update? %>
-				<div class="card-footer">
-					<%= link_to '', edit_event_post_path(csevent), class: "btn btn-outline-info fa fa-pencil-square-o", id: "edit_#{csevent.id}" %>		
-					<%= link_to '', event_post_path(csevent), method: :delete, id: "delete_#{csevent.id}", data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger fa fa-trash" %>
-				</div>
-			<% end %>
+	<% @event_posts.each do |eventpost| %>
+		<div class="card custom-card-border">
+			<div class="view-post card-body">
+				<%= render 'event_details', obj: eventpost %>
+				<% if policy(eventpost).update? %>
+					<%= render 'event_actions', obj: eventpost %>
+			    <% end %>
+			</div>
 		</div>
+		<br>
 	<% end %>
 <% end %>

@@ -3,8 +3,13 @@
     <div class="row">
       <div class="col-md-8 offset-md-2 section-module-column ">
         <h1 class="text-center"><%= @event_post.title %></h1>
+        <%= image_tag @event_post.image.url, class: "rounded mx-auto d-block" if @event_post.image? %>
         <br>
+        <%= render 'activity_posts/table_posts', obj: @event_post %>
         <p><%= @event_post.description %></p>
+        <%#= image_tag "/event_posts/#{@event_post.id}/image/#{@event_post.image}" if @event_post.image? %>
+        <br>
+        <%= render 'event_actions', obj: @event_post %>
       </div>
     </div>
   </div>

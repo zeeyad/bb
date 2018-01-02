@@ -4,14 +4,6 @@ class ActivityPost < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  scope :submitted, ->{ where(status: 0)}
-  scope :approved, ->{ where(status: 1)}
-  scope :rejected, ->{ where(status: 2)}
-
-  scope :not_passed, ->{ where("start_date >= ?", Date.today)}
-  scope :passed, ->{ where("end_date < ?", Date.today)}
-  scope :desc, ->{ order(updated_at: :DESC)}
-
   belongs_to :user
   after_initialize :set_defaults
   validate :check_time
@@ -26,26 +18,6 @@ class ActivityPost < ApplicationRecord
 		  errors.add(:start_time, "can not be earlier than end time considering it is on the same day")
 	  end
 	end
-
-  def date_in_words
-    start_date.strftime("%d %B %Y")
-  end
-
-  def end_date_in_words
-    end_date.strftime("%d %B %Y")
-  end
-
-  def get_name_of_day
-    start_date.strftime("%A")
-  end
-
-  def time_in_words
-    start_time.strftime("%I:%M %p")
-  end
-
-  def duration_of_days
-    (end_date - start_date).to_i
-  end
 
   private
 

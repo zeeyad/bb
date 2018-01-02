@@ -1,0 +1,7 @@
+<a href="<%= event_post_path(obj) %>">
+	<h2 class="card-title"><%= "#{obj.title}" %> </h2>
+	<%= image_tag obj.image.url, style: "max-width: 100%;" if obj.image? %>
+	<p class="card-text" style="padding-top: 10px;"><%= truncate(obj.description, length: 280) %></p>
+	<%= render 'activity_posts/table_posts', obj: obj %>
+	<p><%= obj.user.name.titleize %> posted <i ><%= time_ago_in_words("#{obj.created_at}") %> ago </i></p>
+</a>

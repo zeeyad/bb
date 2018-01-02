@@ -5,6 +5,9 @@ Rails.application.routes.draw do
       get :approve
       get :reject
     end
+    collection do
+      get :archive_posts
+    end
   end
   resources :notifications do
     collection do
