@@ -1,0 +1,31 @@
+<section id="section-module">
+  <div class="container">
+	<div class="row">
+		<div class="col-md-10 section-module-column archive-posts">
+
+	    	<h1 align="center">MODULE POSTS ARCHIVE</h1>
+	    	<br>
+	    	<% if @archive_module_posts.empty? %>
+				<p class="text-center">There is no Module Post. Please add some!</p>
+			<% else %>
+		    	<table class="table table-sm table-bordered custom-table-header ">
+				  <thead class="thead-dark">
+				    <tr>
+				      <th>Title</th>
+				      <th>Description</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <% @archive_module_posts.each do |modulepost| %>
+					    <tr>
+					      <td><%= link_to modulepost.title, module_post_path(modulepost), style: "color:blue;" %></td>
+					      <td><%= modulepost.description %><br><%= modulepost.user.name.titleize %> posted <i><%= time_ago_in_words(modulepost.created_at) %> ago </i></td>
+					    </tr>
+					<% end %>
+				  </tbody>
+				</table>
+			<% end %>
+	    </div>
+	</div>
+  </div>
+</section>

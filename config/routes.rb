@@ -31,6 +31,9 @@ Rails.application.routes.draw do
       get :approve
       get :reject
     end
+    collection do
+      get :archive_posts
+    end    
   end
   devise_for :users
 

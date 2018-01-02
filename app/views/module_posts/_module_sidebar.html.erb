@@ -1,0 +1,18 @@
+<div class="card custom-card-border">
+	<div class="text-center card-body">
+		<h2 align="center">MODULE POSTS </h2>
+    	<div class="mx-auto" style="width: 50px;">
+	    	<%= link_to "", new_module_post_path, class: "select-post btn btn-outline-primary fa fa-pencil-square-o" %>
+	    </div>
+		<%= image_tag("hack.jpg", style: "max-width: 100%;") %>
+	    <br>
+		<p><%= current_user.name.titleize %></p>
+	</div>
+</div>
+<br>
+
+<div class=" custom-card-border">
+	<div class="text-center card-body">
+		<%= link_to "Module Posts Archive", archive_posts_module_posts_path, class: "btn btn-outline-secondary" %>
+	</div>
+</div>

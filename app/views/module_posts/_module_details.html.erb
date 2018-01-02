@@ -1,0 +1,5 @@
+<a href="<%= module_post_path(obj) %>">
+	<h2 class="card-title"><%= "#{obj.title}" %> </h2>
+	<p class="card-text" style="padding-top: 10px;"><%= truncate(obj.description, length: 280) %></p>
+	<p><%= obj.user.name.titleize %> posted <i ><%= time_ago_in_words("#{obj.created_at}") %> ago </i></p>
+</a>

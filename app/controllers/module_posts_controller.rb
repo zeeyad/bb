@@ -3,7 +3,11 @@ class ModulePostsController < ApplicationController
   before_action :set_module_post, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   def index
-  	@module_posts = ModulePost.all
+  	@module_posts = ModulePost.before_a_month
+  end
+
+  def archive_posts
+    @archive_module_posts = ModulePost.more_than_a_month
   end
 
   def approve

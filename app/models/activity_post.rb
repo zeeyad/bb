@@ -13,11 +13,6 @@ class ActivityPost < ApplicationRecord
   validates_presence_of :start_date, :end_date, :start_time, :end_time
 
 # TODO - MOVE CHECK_TIME METHOD TO PRIVATE
-	def check_time
-	  if ( start_date == end_date ) && ( start_time > end_time)
-		  errors.add(:start_time, "can not be earlier than end time considering it is on the same day")
-	  end
-	end
 
   private
 
