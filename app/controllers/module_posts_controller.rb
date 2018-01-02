@@ -17,7 +17,7 @@ class ModulePostsController < ApplicationController
 
   def reject
     @module_post.rejected!
-    redirect_to user_dashboards_path, notice: "The module post has been rejected"
+    redirect_to user_dashboards_path, notice: "The module post has been removed"
   end
 
   def new

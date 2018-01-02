@@ -17,7 +17,7 @@ class EventPostsController < ApplicationController
 
   def reject
     @event_post.rejected!
-    redirect_to user_dashboards_path, notice: "The event post has been rejected"
+    redirect_to user_dashboards_path, notice: "The event post has been removed"
   end
 
   def new

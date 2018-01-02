@@ -128,7 +128,7 @@ describe 'navigate' do
 			fact = FactoryBot.create(:ss_1202, user_id: programme_leader.id)
 			visit module_posts_path
 	  		click_link("delete_#{fact.id}")
-			expect(page).to have_content("ss-1202 was successfully deleted")
+			expect(page).to have_content("The module post has been removed")
 		end
 
 	end
