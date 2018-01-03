@@ -1,17 +1,13 @@
 <div class="row dashboard-listing" id ="listing-post">
-	<% if @total_post == 0 %>
+	<% if @total_posts_submitted == 0 %>
 		<li class="list-group-item">No Posts</li>
 	<% else %>
 		<div class="col-md-12">
-			<h1 align="center">Post Submitted ( <%= @total_post %> )</h1><br>
+			<h1 align="center">Post Submitted ( <%= @total_posts_submitted %> )</h1><br>
 		</div>
 
 		<%= render 'activity_post_submitted', obj: @pending_activities %>
-		
 		<%= render 'event_post_submitted', obj: @pending_events %>
-
-		<%= render 'module_post_submitted' %>
 	<% end %>
 </div>
 <br>
-

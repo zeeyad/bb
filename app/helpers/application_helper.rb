@@ -7,6 +7,14 @@ module ApplicationHelper
     admin_types.include?(current_user.type) 
   end
 
+  def user_types
+    ['Student']
+  end
+
+  def student?
+    user_types.include?(current_user.type) 
+  end
+
   def active?(path)
   	"active" if current_page?(path)
   end

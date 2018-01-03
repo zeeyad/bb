@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     ['ProgrammeLeader']
   end
 
+  def user_types
+    ['Student']
+  end
+
   private
 
   def user_not_authorized

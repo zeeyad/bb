@@ -2,11 +2,8 @@
 	<%#= render 'shared/messages' %>
 	<div class="row row-offcanvas row-offcanvas-right">
 		<div class="col-12">
-			<% if admin_types.include?(current_user.try(:type)) %>
-				<%= render 'programme_leader' %>
-			<% else %>
-
-			<% end %>
+			<%= render 'programme_leader' if programmeleader? %>
+			<%= render 'student' if student? %>
 		</div>
 	</div>
 
