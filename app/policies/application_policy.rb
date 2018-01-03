@@ -24,8 +24,9 @@ class ApplicationPolicy
 
   def update?
     false
+    #return true if user_or_programme_leader
     return true if programmeleader?
-    # return true if user_or_admin && !post_approved?
+    return true if user_creator && !post_approved?
   end
 
   def edit?
@@ -56,8 +57,8 @@ class ApplicationPolicy
 
   private
 
-    def user_or_programme_leader
-      record.user_id == user.id || programmeleader?
+    def user_creator
+      record.user_id == user.id
     end
 
     def programmeleader?

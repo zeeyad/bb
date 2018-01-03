@@ -10,6 +10,14 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 
 puts "1 User created"
 
+@user_2 = User.create!(username: "testasdf1", 
+					email: "test1@test.com",
+					name: "jane jessie", 
+					password: "asdfasdf", 
+					password_confirmation: "asdfasdf")
+
+puts "1 User created"
+
 @programme_leader = User.create!(
 					username: "adminasdf",
 					email: "admin@admin.com", 
@@ -27,7 +35,7 @@ puts "1 Programme Leader User created"
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
 		status: 0,
-		user_id: @user.id)
+		user_id: @programme_leader.id)
 end
 
 10.times do |csmodulepost|
@@ -37,7 +45,7 @@ end
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
 		status: 1,
-		user_id: @user.id)
+		user_id: @programme_leader.id)
 end
 
 10.times do |csmodulepost|
@@ -47,7 +55,7 @@ end
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
 		status: 2,
-		user_id: @user.id)
+		user_id: @programme_leader.id)
 end
 
 puts "30 module post has been created for normal user"

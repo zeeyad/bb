@@ -58,7 +58,14 @@
     <%= f.file_field :image %>
   </div>
 
-  <%= render partial: 'shared/status', locals: { f: f } if current_user.type == 'ProgrammeLeader' %>
+  <div class="form-group">
+    <%= f.radio_button :status, 'submitted' %>
+    <%= f.label :status, 'Submit' %>
+    <%= f.radio_button :status, 'approved' %>
+    <%= f.label :status, 'Approved' %>
+    <%= f.radio_button :status, 'rejected' if !@event_post.new_record? %>
+    <%= f.label :status, 'Rejected' if !@event_post.new_record? %>
+  </div>
 
   <%= f.submit "Save", class: "btn btn-primary btn-block" %>
 <% end %>

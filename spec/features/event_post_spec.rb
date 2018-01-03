@@ -10,6 +10,10 @@ describe 'navigate' do
 
   let(:event_post) { FactoryBot.create(:event_post, user_id: programme_leader.id, status: 1)}
 
+  let(:event_post_1) { FactoryBot.create(:event_post_1, user_id: user.id, status: 0)}
+
+  let(:event_post_2) { FactoryBot.create(:event_post_2, user_id: user.id, status: 1)}
+
   before do
   	login_as(user, :scope => :user)
   end
@@ -65,12 +69,6 @@ describe 'navigate' do
 
   	before do
       login_as(programme_leader, :scope => :user)
-      event_post = FactoryBot.create(:event_post_1, user_id: user.id, status: 1)
-  	  visit edit_event_post_path(event_post)
-  	end
-
-  	it 'can be reached successfully' do
-  	  expect(page.status_code).to eq(200)
   	end
 
   	it 'can be edited by clicking edit on the page' do
@@ -87,9 +85,22 @@ describe 'navigate' do
       logout(:user)
       login_as(other_user, :scope => :user)
       visit edit_event_post_path(event_post)
-
       expect(current_path).to eq(root_path)
     end 
+
+    it 'can edited by a student user where post have not been approved' do
+      logout(:user)
+      login_as(user, :scope => :user)
+      visit edit_event_post_path(event_post_1)
+      expect(current_path).to eq(edit_event_post_path(event_post_1))
+    end
+
+    it 'can not be edited by a student user where user post have approved' do
+      logout(:user)
+      login_as(user, :scope => :user)
+      visit edit_event_post_path(event_post_2)
+      expect(current_path).to eq(root_path)
+    end
 
   end
 

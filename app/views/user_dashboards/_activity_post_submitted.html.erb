@@ -9,13 +9,11 @@
 		    <a href="<%= activity_post_path(activitypost) %>">
 			  <li class="list-group-item"><%= truncate(activitypost.description, length: 280) %></li>
 		    </a>
-		    <% if programmeleader? %>
-			    <div class="card-footer">
-					<%= link_to 'Approve', approve_activity_post_path(activitypost), class: "btn btn-primary btn-block", id: "approve_#{activitypost.id}", data: {confirm: "Are you sure you want to approve?"} %>
-					<%= link_to 'Review', edit_activity_post_path(activitypost), class: "btn btn-success btn-block", id: "edit_#{activitypost.id}" %>
-					<%= link_to 'Reject', reject_activity_post_path(activitypost), class: "btn btn-danger btn-block", id: "reject_#{activitypost.id}", data: {confirm: "Are you sure you want to reject?"} %>
+				<div class="card-footer" >
+					<%= link_to '', approve_activity_post_path(activitypost), class: "btn btn-outline-success fa fa-check-circle-o", id: "approve_#{activitypost.id}", data: {confirm: "Are you sure you want to approve?"} if programmeleader? %>
+					<%= link_to '', edit_activity_post_path(activitypost), class: "btn btn-outline-primary fa fa-pencil-square-o", id: "edit_#{activitypost.id}" if student_dashboard_action?(activitypost) %>		
+					<%= link_to '', reject_activity_post_path(activitypost), id: "delete_#{activitypost.id}", data: {confirm: "Are you sure?"}, class: "btn btn-outline-danger fa fa-trash" if programmeleader? %>
 				</div>
-			<% end %>
 	    </div>
 	    <br>
 	</div>

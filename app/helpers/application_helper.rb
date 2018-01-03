@@ -1,18 +1,19 @@
 module ApplicationHelper
-  def admin_types
-    ['ProgrammeLeader']
-  end
 
   def programmeleader?
     admin_types.include?(current_user.type) 
   end
 
-  def user_types
-    ['Student']
-  end
-
   def student?
     user_types.include?(current_user.type) 
+  end
+
+  def student_dashboard_action?(record)
+    user_creator_and_not_approve(record) || programmeleader?
+  end
+
+  def user_creator_and_not_approve(record)
+    user_creator(record) && !post_approved?(record)
   end
 
   def active?(path)
@@ -35,6 +36,24 @@ module ApplicationHelper
         alert: "",
         notice: "fa-info-circle"
     }[flash_type.to_sym] || 'glyphicon-screenshot'
+  end
+
+  private
+
+  def admin_types
+    ['ProgrammeLeader']
+  end
+
+  def user_types
+    ['Student']
+  end
+
+  def user_creator(record)
+    record.user_id == current_user.id
+  end
+
+  def post_approved?(record)
+    record.approved?
   end
 
 end
