@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+  # THIS IS FOR USERDASHBOARDS CONTROLLER
   def admin_types
     ['ProgrammeLeader']
   end

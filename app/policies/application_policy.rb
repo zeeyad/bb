@@ -36,6 +36,16 @@ class ApplicationPolicy
     false
   end
 
+  def approve?
+    false
+    return true if programmeleader?    
+  end
+
+  def reject?
+    false
+    return true if programmeleader?
+  end
+
   def scope
     Pundit.policy_scope!(user, record.class)
   end
@@ -43,7 +53,6 @@ class ApplicationPolicy
   def admin_types
     ['ProgrammeLeader']
   end
-
 
   private
 

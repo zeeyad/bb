@@ -11,11 +11,13 @@ class ActivityPostsController < ApplicationController
   end
 
   def approve
+    authorize @activity_post
     @activity_post.approved!
     redirect_to user_dashboards_path, notice: "The activity post has been approved"
   end
 
   def reject
+    authorize @activity_post
     @activity_post.rejected!
     flash[:notice] = "The activity post has been removed"
     redirect_to action: "index"
@@ -55,7 +57,7 @@ class ActivityPostsController < ApplicationController
   end
 
   def show
-    
+    authorize @activity_post
   end
 
   def destroy

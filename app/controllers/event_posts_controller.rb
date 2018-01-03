@@ -11,11 +11,13 @@ class EventPostsController < ApplicationController
   end
 
   def approve
+    authorize @event_post
     @event_post.approved!
     redirect_to user_dashboards_path, notice: "The event post has been approved"
   end
 
   def reject
+    authorize @event_post
     @event_post.rejected!
     redirect_to user_dashboards_path, notice: "The event post has been removed"
   end
@@ -25,6 +27,8 @@ class EventPostsController < ApplicationController
   end
 
   def create
+    params[:event_post].parse_time_select! :start_time
+    params[:event_post].parse_time_select! :end_time
   	@event_post = EventPost.new(event_params)
   	@event_post.user_id = current_user.id
   	if @event_post.save

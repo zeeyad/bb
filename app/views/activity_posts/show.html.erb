@@ -7,9 +7,10 @@
         <br>
         <%= render 'table_posts', obj: @activity_post %>
         <p><%= @activity_post.description %></p>
-        <%#= image_tag "/activity_posts/#{@activity_post.id}/image/#{@activity_post.image}" if @activity_post.image? %>
         <br>
-        <%= render 'activity_actions', obj: @activity_post %>
+        <% if policy(@activity_post).update? %>
+          <%= render 'activity_actions', obj: @activity_post %>
+        <% end %>
       </div>
     </div>
   </div>

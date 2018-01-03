@@ -1,0 +1,3 @@
+class UserDashboardPolicy < ApplicationPolicy
+
+end

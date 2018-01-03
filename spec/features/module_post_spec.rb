@@ -41,6 +41,7 @@ describe 'navigate' do
 	describe 'creation' do 
 
 		before do
+			login_as(programme_leader, :scope => :user )
 			visit new_module_post_path
 		end
 
@@ -72,6 +73,13 @@ describe 'navigate' do
 			fill_in 'Description', with: "Some Description"
 			click_on "Save"
 			expect(User.last.module_posts.last.description).to eq("Some Description")
+		end
+
+		it 'can not be reached by students' do
+			logout(:programme_leader)
+			login_as(user, :scope => :user )
+			visit new_module_post_path
+			expect(current_path).to eq(root_path)
 		end
 
 	end

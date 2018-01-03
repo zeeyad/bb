@@ -2,7 +2,7 @@
 	<div class="text-center card-body">
 		<h2 align="center">MODULE POSTS </h2>
     	<div class="mx-auto" style="width: 50px;">
-	    	<%= link_to "", new_module_post_path, class: "select-post btn btn-outline-primary fa fa-pencil-square-o" %>
+	    	<%= link_to "", new_module_post_path, class: "select-post btn btn-outline-primary fa fa-pencil-square-o" if programmeleader? %>
 	    </div>
 		<%= image_tag("hack.jpg", style: "max-width: 100%;") %>
 	    <br>

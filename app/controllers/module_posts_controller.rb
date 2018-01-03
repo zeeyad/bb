@@ -11,17 +11,20 @@ class ModulePostsController < ApplicationController
   end
 
   def approve
+    authorize @module_post
     @module_post.approved!
     redirect_to user_dashboards_path, notice: "The module post has been approved"
   end
 
   def reject
+    authorize @module_post
     @module_post.rejected!
     redirect_to user_dashboards_path, notice: "The module post has been removed"
   end
 
   def new
   	@module_post = ModulePost.new
+    authorize @module_post
   end
 
   def create
