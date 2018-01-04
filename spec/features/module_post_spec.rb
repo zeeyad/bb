@@ -9,11 +9,11 @@ describe 'navigate' do
 	let(:module_post) do
 		ModulePost.create(title: "Title is good", 
 					description: "Rationale", 
-					user_id: user.id)
+					user_id: programme_leader.id)
 	end
 
 	before do
-		login_as(user, :scope => :user)
+		login_as(programme_leader, :scope => :user)
 	end
 
 	describe 'index' do
@@ -31,8 +31,8 @@ describe 'navigate' do
 		end
 
 		it 'has a list of cs module post' do
-			csmodule1 = FactoryBot.create(:ss_1201, user_id: user.id)
-	    	csmodule2 = FactoryBot.create(:ss_1202, user_id: user.id)
+			csmodule1 = FactoryBot.create(:ss_1201, user_id: programme_leader.id)
+	    	csmodule2 = FactoryBot.create(:ss_1202, user_id: programme_leader.id)
 	    	visit module_posts_path
 			expect(page).to have_content(/Programming|Information/)
 		end
@@ -43,10 +43,6 @@ describe 'navigate' do
 		before do
 			login_as(programme_leader, :scope => :user )
 			visit new_module_post_path
-		end
-
-		it 'has form that can be reached' do
-			expect(page.status_code).to eq(200)
 		end
 
 		it 'can be created from new form page' do
@@ -89,7 +85,8 @@ describe 'navigate' do
 
 		before do
 			login_as(programme_leader, :scope => :user)
-			visit edit_module_post_path(module_post)
+			module_post_1 = FactoryBot.create(:ss_1201, user_id: programme_leader.id)
+			visit edit_module_post_path(module_post_1)
 		end
 
 		it 'can be edited' do
@@ -101,8 +98,9 @@ describe 'navigate' do
 		end
 
 		it 'can be edited by clicking edit on the page' do
+			module_post_2 = FactoryBot.create(:ss_1201, user_id: programme_leader.id)
 			visit module_posts_path
-			click_link("edit_#{module_post.id}")
+			click_link("edit_#{module_post_2.id}")
 			fill_in 'Title', with: "My Title"
 	  		fill_in 'Description', with: "Edited Content"
 	  		click_on "Save"

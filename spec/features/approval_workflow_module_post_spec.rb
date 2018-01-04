@@ -16,27 +16,6 @@ describe 'navigate' do
   	  visit edit_module_post_path(@cs_module)
   	end
 
-  	it 'has a status that can be edited on the form' do
-      choose 'module_post_status_approved'
-      click_on 'Save'
-      expect(@cs_module.reload.status).to eq('approved')
-    end
-
-    it 'can not be edited by not creator or normal user' do
-      logout(:programme_leader)
-      login_as(@user, :scope => :user)
-      visit edit_module_post_path(@cs_module)
-      expect(current_path).to eq(root_path)
-    end
-
-    it 'can not be editable by the post creator if status is approved' do
-      @cs_module_2.update(status: 'approved')
-      logout(:programme_leader)
-      login_as(@user, :scope => :user)
-      visit edit_module_post_path(@cs_module_2)
-      expect(current_path).to eq(root_path)      
-    end
-
   end
 
 end
