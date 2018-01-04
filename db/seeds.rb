@@ -34,7 +34,7 @@ puts "1 Programme Leader User created"
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		status: 0,
+		status: 1,
 		user_id: @programme_leader.id)
 end
 
@@ -54,7 +54,7 @@ end
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		status: 2,
+		status: 1,
 		user_id: @programme_leader.id)
 end
 
@@ -175,7 +175,7 @@ puts "30 event post has been created for user"
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		status: 0,
+		status: 1,
 		user_id: @programme_leader.id)
 end
 
@@ -195,7 +195,7 @@ end
 		description: "#{csmodulepost} Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 			Mauris a tincidunt justo, eu viverra turpis. Nulla in mattis lorem. 
 			Praesent vitae finibus libero. ",
-		status: 2,
+		status: 1,
 		user_id: @programme_leader.id)
 end
 

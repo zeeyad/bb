@@ -9,7 +9,6 @@ class ActivityPost < ApplicationRecord
   validate :check_time
   validate :check_start_date_and_end_date
   validates_presence_of :title, :description, :venue
-
   validates_presence_of :start_date, :end_date, :start_time, :end_time
 
 # TODO - MOVE CHECK_TIME METHOD TO PRIVATE

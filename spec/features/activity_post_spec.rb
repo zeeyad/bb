@@ -61,6 +61,20 @@ describe 'navigate' do
   	  fill_in 'Venue', with: "Venue"
   	  expect { click_on "Save" }.to change(ActivityPost, :count).by(1)
   	end
+
+    it 'can be created successfully and post status approved if programme leader' do
+      logout(:user)
+      login_as(programme_leader, :scope => :user)
+      fill_in 'Title', with: "SuperAwesomeTitle"
+      fill_in 'Description', with: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      fill_in 'activity_post[start_date]', with: Date.today
+      fill_in 'activity_post[end_date]', with: Date.today
+      #select "option['10:30:00']", :from => "activity_post[start_time(5i)]"
+      fill_in 'Venue', with: "Venue"
+      click_on "Save"
+      expect(page).to have_content(/Lorem ipsum/)
+    end
+
   end
 
   describe 'edit' do

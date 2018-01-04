@@ -3,7 +3,7 @@ class ModulePostsController < ApplicationController
   before_action :set_module_post, only: [:show, :edit, :update, :destroy, :approve, :reject]
 
   def index
-  	@module_posts = ModulePost.before_a_month
+  	@module_posts = ModulePost.approved.desc.before_a_month
   end
 
   def archive_posts
@@ -29,6 +29,7 @@ class ModulePostsController < ApplicationController
 
   def create
   	@module_post = ModulePost.new(module_post_params)
+    @module_post.status = 'approved' if admin_types.include?(current_user.type)
     @module_post.user_id = current_user.id
   	if @module_post.save
       (User.all - [current_user]).each do |user|

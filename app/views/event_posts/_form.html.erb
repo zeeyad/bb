@@ -58,14 +58,16 @@
     <%= f.file_field :image %>
   </div>
 
-  <div class="form-group">
-    <%= f.radio_button :status, 'submitted' %>
-    <%= f.label :status, 'Submit' %>
-    <%= f.radio_button :status, 'approved' %>
-    <%= f.label :status, 'Approved' %>
-    <%= f.radio_button :status, 'rejected' if !@event_post.new_record? %>
-    <%= f.label :status, 'Rejected' if !@event_post.new_record? %>
-  </div>
+  <% if !@event_post.new_record? && programmeleader? %>
+    <div class="form-group">
+      <%= f.radio_button :status, 'submitted' %>
+      <%= f.label :status, 'Submit' %>
+      <%= f.radio_button :status, 'approved' %>
+      <%= f.label :status, 'Approved' %>
+      <%= f.radio_button :status, 'rejected' %>
+      <%= f.label :status, 'Rejected' %>
+    </div>
+  <% end %>
 
   <%= f.submit "Save", class: "btn btn-primary btn-block" %>
 <% end %>

@@ -29,6 +29,7 @@
     <%= f.label :start_time %>
     <%= f.time_select :start_time,
   :combined => true,
+  :label => "Label Name",
   :minute_interval => 15,
   :time_separator => "",
   :start_hour => 10,
@@ -58,14 +59,18 @@
     <%= f.file_field :image %>
   </div>
 
-  <div class="form-group">
-    <%= f.radio_button :status, 'submitted' %>
-    <%= f.label :status, 'Submit' %>
-    <%= f.radio_button :status, 'approved' %>
-    <%= f.label :status, 'Approved' %>
-    <%= f.radio_button :status, 'rejected' if !@activity_post.new_record? %>
-    <%= f.label :status, 'Rejected' if !@activity_post.new_record? %>
-  </div>
-
+  <% if !@activity_post.new_record? && programmeleader? %>
+    <div class="form-group">
+      <%= f.radio_button :status, 'submitted' %>
+      <%= f.label :status, 'Submit' %>
+      <%= f.radio_button :status, 'approved' %>
+      <%= f.label :status, 'Approved'  %>
+      <%= f.radio_button :status, 'rejected' %>
+      <%= f.label :status, 'Rejected' %>
+    </div>
+  <% end %>
   <%= f.submit "Save", class: "btn btn-primary btn-block" %>
 <% end %>
+
+
+<%#= @activity_post.inspect %>
