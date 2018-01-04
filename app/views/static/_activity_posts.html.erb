@@ -4,7 +4,7 @@
   <% obj.each do |activitypost| %>
       <div class="card">
         <a href="<%= activity_post_path(activitypost) %>">
-	      <li class="view-post list-group-item"><%= activitypost.title %></li>
+	      <li class="view-post list-group-item"><%= activitypost.title %> <br><%= image_tag activitypost.image.url, style: "max-width: 100%; padding-top: 7px;" if activitypost.image? %></li>
         </a>
      </div>
   <% end %>

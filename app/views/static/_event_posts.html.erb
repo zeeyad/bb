@@ -4,7 +4,7 @@
   <% obj.each do |eventpost| %>
     <div class="card">
 	  <a href="<%= event_post_path(eventpost) %>">
-		<li class="view-post list-group-item"><%= eventpost.title %></li>
+		<li class="view-post list-group-item"><%= eventpost.title %><br><%= image_tag eventpost.image.url, style: "max-width: 100%; padding-top: 7px;" if eventpost.image? %></li>
 	  </a>
 	</div>
   <% end %>
