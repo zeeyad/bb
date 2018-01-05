@@ -29,6 +29,11 @@ ActiveAdmin.register ActivityPost do
     actions
   end
 
+  filter :title
+  filter :description
+  filter :start_date
+  filter :venue  
+
   scope :all
   scope :submitted
   scope :approved
@@ -53,13 +58,13 @@ ActiveAdmin.register ActivityPost do
   member_action :approve, method: :put do
    	activity_post = ActivityPost.friendly.find(params[:id])
    	activity_post.update(status: 1)
-   	redirect_to  admin_activity_post_path(activity_post)
+   	redirect_to  admin_activity_post_path(activity_post), alert: "The posts have been approved."
   end
 
   member_action :reject, method: :put do
    	activity_post = ActivityPost.friendly.find(params[:id])
    	activity_post.update(status: 2)
-   	redirect_to  admin_activity_post_path(activity_post)
+   	redirect_to  admin_activity_post_path(activity_post), alert: "The posts have been rejected."
   end
 #
 # or
