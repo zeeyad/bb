@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :user_dashboards
-  resources :event_posts do
+  root to: 'static#homepage'
+  get :search, controller: :static
+  get :select_new_post_option, controller: :static
+  get :about, controller: :static
+
+  resources :activity_posts do
     member do
       get :approve
       get :reject
@@ -9,15 +13,7 @@ Rails.application.routes.draw do
       get :archive_posts
     end
   end
-  resources :notifications do
-    collection do
-      post :mark_as_read
-    end
-  end
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
-  get :search, controller: :static
-  resources :activity_posts do
+  resources :event_posts do
     member do
       get :approve
       get :reject
@@ -35,11 +31,18 @@ Rails.application.routes.draw do
       get :archive_posts
     end    
   end
+
+  resources :user_dashboards
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
+
   devise_for :users
 
-  get :select_new_post_option, controller: :static
-  get :about, controller: :static
-  root to: 'static#homepage'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   get 'user_imports', to: 'user_imports#index', as: :user_imports
   post 'user_imports', to: 'user_imports#create'

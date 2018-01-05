@@ -3,6 +3,32 @@ ActiveAdmin.register ActivityPost do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 
+  batch_action :approve do |ids|
+    batch_action_collection.find(ids).each do |activitypost|
+      activitypost.approved!      
+    end
+    redirect_to collection_path, alert: "The posts have been approved."
+  end
+
+  batch_action :reject do |ids|
+    batch_action_collection.find(ids).each do |activitypost|
+      activitypost.rejected!      
+    end
+    redirect_to collection_path, alert: "The posts have been rejected."
+  end
+
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :description
+    column :start_date
+    column :venue
+    column :user
+    column :status
+    actions
+  end
+
   scope :all
   scope :submitted
   scope :approved
