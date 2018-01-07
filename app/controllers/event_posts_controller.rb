@@ -19,7 +19,8 @@ class EventPostsController < ApplicationController
   def reject
     authorize @event_post
     @event_post.rejected!
-    redirect_to user_dashboards_path, notice: "The event post has been removed"
+    flash[:notice] = "The activity post has been removed"
+    redirect_to action: "index"
   end
 
   def new
@@ -30,7 +31,7 @@ class EventPostsController < ApplicationController
     params[:event_post].parse_time_select! :start_time
     params[:event_post].parse_time_select! :end_time
   	@event_post = EventPost.new(event_params)
-    @event_post.status = 'approved' if admin_types.include?(current_user.type)
+    @event_post.status = 'approved' if staff.include?(current_user.type)
   	@event_post.user_id = current_user.id
   	if @event_post.save
       flash[:success] = "#{@event_post.title} was successfully created"

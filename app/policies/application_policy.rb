@@ -27,6 +27,7 @@ class ApplicationPolicy
     #return true if user_or_programme_leader
     return true if programmeleader?
     return true if user_creator && !post_approved?
+    return true if user_creator && programmeleader_or_lecturer? 
   end
 
   def edit?
@@ -45,6 +46,7 @@ class ApplicationPolicy
   def reject?
     false
     return true if programmeleader?
+    return true if user_creator && programmeleader_or_lecturer? 
   end
 
   def scope
@@ -55,10 +57,18 @@ class ApplicationPolicy
     ['ProgrammeLeader']
   end
 
+  def staff
+    ['ProgrammeLeader', 'Lecturer']
+  end
+
   private
 
     def user_creator
       record.user_id == user.id
+    end
+
+    def programmeleader_or_lecturer?
+      staff.include?(user.type)
     end
 
     def programmeleader?

@@ -19,7 +19,8 @@ class ModulePostsController < ApplicationController
   def reject
     authorize @module_post
     @module_post.rejected!
-    redirect_to user_dashboards_path, notice: "The module post has been removed"
+    flash[:notice] = "The module post has been removed"
+    redirect_to action: "index"
   end
 
   def new
@@ -29,7 +30,7 @@ class ModulePostsController < ApplicationController
 
   def create
   	@module_post = ModulePost.new(module_post_params)
-    @module_post.status = 'approved' if admin_types.include?(current_user.type)
+    @module_post.status = 'approved' if staff.include?(current_user.type)
     @module_post.user_id = current_user.id
   	if @module_post.save
       (User.all - [current_user]).each do |user|

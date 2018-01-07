@@ -32,4 +32,28 @@ FactoryBot.define do
     user
   end
 
+  factory :lecture_post, class: "ActivityPost" do
+    title "LecturePost"
+    description "The Lecture Post"
+    start_date Date.today
+    end_date Date.today + 3.days
+    venue "MyString"
+    start_time "2017-12-14 21:32:07"
+    end_time "2017-12-14 21:32:07"
+    status 1
+    user
+  end
+
+  factory :user_post, class: "ActivityPost" do
+    title "UserPost"
+    description "The User Post"
+    start_date Date.today
+    end_date Date.today + 3.days
+    venue "MyString"
+    start_time "2017-12-14 21:32:07"
+    end_time "2017-12-14 21:32:07"
+    status 1
+    user
+  end
+
 end

@@ -6,7 +6,7 @@ class ModulePostPolicy < ApplicationPolicy
 
   def create?
   	false
-  	return true if programmeleader?  	
+  	return true if programmeleader_or_lecturer?  	
   end
 
 end

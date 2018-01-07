@@ -3,22 +3,17 @@ require 'rails_helper'
 describe 'navigate' do
 
   let(:user) { FactoryBot.create(:user) }
-
+  let(:lecturer) { FactoryBot.create(:lecturer) }
   let(:programme_leader) { FactoryBot.create(:programme_leader) }
 
   let(:activity_post) { FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)}
-
   let(:activity_post_1) { FactoryBot.create(:activity_post_1, user_id: user.id, status: 0)}
-
   let(:activity_post_2) { FactoryBot.create(:activity_post_2, user_id: user.id, status: 1)}
-
-  before do
-  	login_as(user, :scope => :user)
-  end
 
   describe	'index' do
 
   	before do
+      login_as(user, :scope => :user)
   	  visit activity_posts_path
   	end
 
@@ -26,17 +21,17 @@ describe 'navigate' do
   	  expect(page.status_code).to eq(200)
   	end
 
-  	it 'has title of cs activity post' do
+  	it 'has title of activity post' do
   	  expect(page).to have_content(/ACTIVITY POST/)
   	end
 
-	it 'has a list of cs module post' do
-    login_as(programme_leader, :scope => :user)
-	  csactivity1 = FactoryBot.create(:activity_post_1, user_id: programme_leader.id, status: 1)
-    csactivity2 = FactoryBot.create(:activity_post_2, user_id: programme_leader.id, status: 1)
-    visit activity_posts_path
-	  expect(page).to have_content(/ActivityPost1|ActivityPost2/)
-	end
+  	it 'has a list of activity post' do
+      login_as(programme_leader, :scope => :user)
+  	  FactoryBot.create(:activity_post_1, user_id: programme_leader.id, status: 1)
+      FactoryBot.create(:activity_post_2, user_id: programme_leader.id, status: 1)
+      visit activity_posts_path
+  	  expect(page).to have_content(/ActivityPost1|ActivityPost2/)
+  	end
 
   end
 
@@ -73,6 +68,19 @@ describe 'navigate' do
       fill_in 'Venue', with: "Venue"
       click_on "Save"
       expect(page).to have_content(/Lorem ipsum/)
+    end
+
+    it 'can be created successfully and post status approved if lecturer' do
+      logout(:user)
+      login_as(lecturer, :scope => :user)
+      fill_in 'Title', with: "SuperAwesomeTitle"
+      fill_in 'Description', with: "L Act Post dolor sit amet, consectetur adipiscing elit."
+      fill_in 'activity_post[start_date]', with: Date.today
+      fill_in 'activity_post[end_date]', with: Date.today
+      #select "option['10:30:00']", :from => "activity_post[start_time(5i)]"
+      fill_in 'Venue', with: "Venue"
+      click_on "Save"
+      expect(page).to have_content(/L Act Post/)
     end
 
   end

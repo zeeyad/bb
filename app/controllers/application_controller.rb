@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
     ['ProgrammeLeader']
   end
 
+  def staff
+    ['ProgrammeLeader', 'Lecturer']
+  end
+
   def user_types
     ['Student']
   end

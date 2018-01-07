@@ -8,7 +8,7 @@ AdminUser.create!(email: 'admin@example.com', password: 'asdfasdf', password_con
 					password: "asdfasdf", 
 					password_confirmation: "asdfasdf")
 
-puts "1 User created"
+puts "First Student User created"
 
 @user_2 = User.create!(username: "testasdf1", 
 					email: "test1@test.com",
@@ -16,7 +16,7 @@ puts "1 User created"
 					password: "asdfasdf", 
 					password_confirmation: "asdfasdf")
 
-puts "1 User created"
+puts "Second Student User created"
 
 @programme_leader = User.create!(
 					username: "adminasdf",
@@ -27,6 +27,17 @@ puts "1 User created"
 					type: "ProgrammeLeader")
 
 puts "1 Programme Leader User created"
+
+
+@lecturer = User.create!(
+					username: "lecturerasdf",
+					email: "staff@staff.com", 
+					name: "luna lovegood", 
+					password: "asdfasdf", 
+					password_confirmation: "asdfasdf", 
+					type: "Lecturer")
+
+puts "1 Lecturer User created"
 
 10.times do |csmodulepost|
 	ModulePost.create( 

@@ -4,6 +4,14 @@ module ApplicationHelper
     admin_types.include?(current_user.type) 
   end
 
+  def programmeleader_or_lecturer?
+    staff.include?(current_user.type)
+  end
+
+  def lecturer?
+    lecturer.include?(current_user.type)
+  end
+
   def student?
     user_types.include?(current_user.type) 
   end
@@ -42,6 +50,14 @@ module ApplicationHelper
 
   def admin_types
     ['ProgrammeLeader']
+  end
+
+  def staff
+    ['ProgrammeLeader','Lecturer']
+  end
+
+  def lecturer
+    ['Lecturer']
   end
 
   def user_types

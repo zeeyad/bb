@@ -31,7 +31,7 @@ class ActivityPostsController < ApplicationController
     params[:activity_post].parse_time_select! :start_time
     params[:activity_post].parse_time_select! :end_time
     @activity_post = ActivityPost.new(activity_post_params)
-    @activity_post.status = 'approved' if admin_types.include?(current_user.type)
+    @activity_post.status = 'approved' if staff.include?(current_user.type)
     @activity_post.user_id = current_user.id
   	if @activity_post.save
       flash[:success] = "#{@activity_post.title} was successfully created"
