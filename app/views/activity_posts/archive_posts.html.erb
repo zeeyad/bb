@@ -8,6 +8,7 @@
 	    	<% if @archive_activity_posts.empty? %>
 				<p class="text-center">There is no Activity Post. Please add some!</p>
 			<% else %>
+
 		    	<table class="table table-sm table-bordered custom-table-header ">
 				  <thead class="thead-dark">
 				    <tr>
@@ -19,6 +20,9 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				  	<div class="container pagination justify-content-center" >
+				 	  <%= paginate @archive_activity_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"  %>
+				 	</div>
 				    <% @archive_activity_posts.each do |activitypost| %>
 					    <tr>
 					      <td><%= link_to activitypost.title, activity_post_path(activitypost), style: "color:blue;" %></td>
@@ -30,6 +34,9 @@
 					<% end %>
 				  </tbody>
 				</table>
+				<div class="container pagination justify-content-center" >
+			 	  <%= paginate @archive_activity_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"  %>
+			 	</div>
 			<% end %>
 	    </div>
 	</div>

@@ -19,6 +19,9 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				  	<div class="container pagination justify-content-center" >
+				 	  <%= paginate @archive_event_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"  %>
+				 	</div>
 				    <% @archive_event_posts.each do |eventpost| %>
 					    <tr>
 					      <td><%= link_to eventpost.title, activity_post_path(eventpost), style: "color:blue;" %></td>
@@ -30,6 +33,9 @@
 					<% end %>
 				  </tbody>
 				</table>
+				<div class="container pagination justify-content-center" >
+			 	  <%= paginate @archive_event_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"  %>
+			 	</div>
 			<% end %>
 	    </div>
 	</div>

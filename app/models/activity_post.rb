@@ -1,5 +1,6 @@
 class ActivityPost < ApplicationRecord
   extend FriendlyId
+  max_paginates_per 5
 
   friendly_id :title, use: :slugged
 

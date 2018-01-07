@@ -5,10 +5,13 @@
 			<%= render 'activity_sidebar' %>
 		</div>
 		<div class="col-md-7 section-module-column">
-
-		 	  <%= paginate @activity_posts %>
-
-			<%= render 'activity_posts', obj: @activity_posts %>
+		 	  <% paginate @activity_posts, theme: 'twitter-bootstrap-4'  %>
+		 	<div>
+			  <%= render 'activity_post', obj: @activity_posts %>
+			</div>
+			<div class="container pagination justify-content-center" >
+		 	  <%= paginate @activity_posts, theme: 'twitter-bootstrap-4'  %>
+		 	</div>
 		</div>
 	</div>
   </div>

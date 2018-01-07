@@ -3,11 +3,11 @@ class EventPostsController < ApplicationController
   before_action :set_event_post, only: [:edit, :update, :show, :destroy, :approve, :reject]
 
   def index
-	  @event_posts = EventPost.approved.not_passed.desc  	
+	  @event_posts = EventPost.approved.not_passed.desc.page(params[:page]).per(5)
   end
 
   def archive_posts
-    @archive_event_posts = EventPost.approved.passed
+    @archive_event_posts = EventPost.approved.passed.page(params[:page]).per(20)
   end
 
   def approve

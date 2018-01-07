@@ -16,6 +16,9 @@
 				    </tr>
 				  </thead>
 				  <tbody>
+				  	<div class="container pagination justify-content-center" >
+				  	  <%= paginate @archive_module_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"  %>
+				 	</div>
 				    <% @archive_module_posts.each do |modulepost| %>
 					    <tr>
 					      <td><%= link_to modulepost.title, module_post_path(modulepost), style: "color:blue;" %></td>
@@ -24,6 +27,9 @@
 					<% end %>
 				  </tbody>
 				</table>
+				<div class="container pagination justify-content-center" >
+			  	  <%= paginate @archive_module_posts, theme: 'twitter-bootstrap-4', pagination_class: "pagination-sm"  %>
+			 	</div>
 			<% end %>
 	    </div>
 	</div>

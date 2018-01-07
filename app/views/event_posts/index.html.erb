@@ -4,8 +4,12 @@
 		<div class="col-md-3 section-new-column">
 			<%= render 'event_sidebar' %>
 		</div>
+		<% paginate @event_posts, theme: 'twitter-bootstrap-4'  %>
 		<div class="col-md-7 section-module-column">
 			<%= render 'event_posts', obj: @event_posts %>
+		  <div class="container pagination justify-content-center" >
+	 	    <%= paginate @event_posts, theme: 'twitter-bootstrap-4'  %>
+	 	  </div>
 		</div>
 	</div>
   </div>

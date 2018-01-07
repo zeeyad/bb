@@ -6,7 +6,11 @@
 		</div>
     	<br/>
     	<div class="col-md-7 section-module-column">
-			<%= render 'module_posts', obj: @module_posts %>
+    	  <% paginate @module_posts, theme: 'twitter-bootstrap-4'  %>
+		  <%= render 'module_posts', obj: @module_posts %>
+		  <div class="container pagination justify-content-center" >
+	 	    <%= paginate @module_posts, theme: 'twitter-bootstrap-4'  %>
+	 	  </div>
 		</div>
 	</div>
   </div>

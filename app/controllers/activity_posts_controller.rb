@@ -3,11 +3,11 @@ class ActivityPostsController < ApplicationController
   before_action :set_activity_post, only: [:edit, :update, :show, :destroy, :approve, :reject]
 
   def index
-  	@activity_posts = ActivityPost.approved.not_passed.desc.page(params[:page]).per(5)
+  	@activity_posts = ActivityPost.approved.not_passed.desc.page params[:page]
   end
 
   def archive_posts
-    @archive_activity_posts = ActivityPost.approved.passed
+    @archive_activity_posts = ActivityPost.approved.passed.page(params[:page]).per(20)
   end
 
   def approve
