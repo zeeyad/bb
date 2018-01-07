@@ -15,15 +15,15 @@ class StaticController < ApplicationController
 	end
 
 	def search
-		@module_posts = ModulePost.ransack(title_cont: params[:q]).result(distinct: true)
-		@activity_posts = ActivityPost.ransack(title_cont: params[:q]).result(distinct: true)
-		@event_posts = EventPost.ransack(title_cont: params[:q]).result(distinct: true)
+		@module_posts = ModulePost.before_a_month.ransack(title_cont: params[:q]).result(distinct: true)
+		@activity_posts = ActivityPost.not_passed.ransack(title_cont: params[:q]).result(distinct: true)
+		@event_posts = EventPost.not_passed.ransack(title_cont: params[:q]).result(distinct: true)
 		respond_to do |format|
 		  format.html {}
 		  format.json {
-		  	@module_posts = @module_posts.limit(5)
-		  	@activity_posts = @activity_posts.limit(5)
-		  	@event_posts = @event_posts.limit(5)
+		  	@module_posts = @module_posts.limit(8)
+		  	@activity_posts = @activity_posts.limit(8)
+		  	@event_posts = @event_posts.limit(8)
 		  }
 		end
 	end
