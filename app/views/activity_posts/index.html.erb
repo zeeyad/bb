@@ -5,6 +5,9 @@
 			<%= render 'activity_sidebar' %>
 		</div>
 		<div class="col-md-7 section-module-column">
+
+		 	  <%= paginate @activity_posts %>
+
 			<%= render 'activity_posts', obj: @activity_posts %>
 		</div>
 	</div>

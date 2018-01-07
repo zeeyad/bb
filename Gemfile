@@ -25,6 +25,7 @@ gem 'activeadmin', '~> 1.2'
 gem 'roo'
 gem 'combined_time_select', '~> 2.0'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

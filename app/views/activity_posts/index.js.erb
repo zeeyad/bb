@@ -1,0 +1,2 @@
+$('#activity_posts').html('<%= escape_javascript render(@activity_posts) %>');
+$('#paginator').html('<%= escape_javascript(paginate(@activity_posts, remote: true).to_s) %>');
