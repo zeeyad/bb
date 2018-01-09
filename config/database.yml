@@ -16,5 +16,3 @@ test:
 production:
   <<: *default
   database: bb_production
-  username: bb
-  password: <%= ENV['BB_DATABASE_PASSWORD'] %>
