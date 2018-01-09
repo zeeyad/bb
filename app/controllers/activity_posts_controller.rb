@@ -1,9 +1,8 @@
 class ActivityPostsController < ApplicationController
-
   before_action :set_activity_post, only: [:edit, :update, :show, :destroy, :approve, :reject]
 
   def index
-  	@activity_posts = ActivityPost.approved.not_passed.desc.page params[:page]
+    @activity_posts = ActivityPost.approved.not_passed.desc.page params[:page]
   end
 
   def archive_posts
@@ -13,18 +12,18 @@ class ActivityPostsController < ApplicationController
   def approve
     authorize @activity_post
     @activity_post.approved!
-    redirect_to user_dashboards_path, notice: "The activity post has been approved"
+    redirect_to user_dashboards_path, notice: 'The activity post has been approved'
   end
 
   def reject
     authorize @activity_post
     @activity_post.rejected!
-    flash[:notice] = "The activity post has been removed"
-    redirect_to action: "index"
+    flash[:notice] = 'The activity post has been removed'
+    redirect_to action: 'index'
   end
 
   def new
-  	@activity_post = ActivityPost.new
+    @activity_post = ActivityPost.new
   end
 
   def create
@@ -33,12 +32,12 @@ class ActivityPostsController < ApplicationController
     @activity_post = ActivityPost.new(activity_post_params)
     @activity_post.status = 'approved' if staff.include?(current_user.type)
     @activity_post.user_id = current_user.id
-  	if @activity_post.save
+    if @activity_post.save
       flash[:success] = "#{@activity_post.title} was successfully created"
-  		redirect_to activity_posts_path
-  	else
-  		render 'new'
-  	end
+      redirect_to activity_posts_path
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -64,18 +63,28 @@ class ActivityPostsController < ApplicationController
   def destroy
     @activity_post.delete
     flash[:alert] = "#{@activity_post.title} was successfully deleted"
-    redirect_to activity_posts_path    
+    redirect_to activity_posts_path
   end
 
   private
 
-    def set_activity_post
-      @activity_post = ActivityPost.friendly.find(params[:id])
-    end
+  def set_activity_post
+    @activity_post = ActivityPost.friendly.find(params[:id])
+  end
 
-  	def activity_post_params
-  	  params.require(:activity_post).permit(:title, :description, :start_date, :end_date, :start_time,
-  	  											:end_time, :venue, :status, :image)
-  	end
-
+  def activity_post_params
+    params
+      .require(:activity_post)
+      .permit(
+        :title,
+        :description,
+        :start_date,
+        :end_date,
+        :start_time,
+        :end_time,
+        :venue,
+        :status,
+        :image
+      )
+  end
 end
