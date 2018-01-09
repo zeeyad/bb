@@ -1,8 +1,8 @@
-##Bulletin Board
+## Bulletin Board
 
 The Bulletin Board is for obtaining the latest information regarding upcoming activity, event or module for all students and members for the CS Academic staff. The information in the Bulletin Board are constantly curated to assist the students/faculty members in obtaining the latest and relevant information.
 
-##What can the Bulletin Board do ?
+## What can the Bulletin Board do ?
 
 1. Authentication - users will need a password to access the system. 
 
