@@ -3,6 +3,6 @@ Documentation:
 Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
-  Enabled: false
+  Max: 120
 Metrics/MethodLength:
   Max: 34
