@@ -23,3 +23,6 @@ sendgrid.env
 /config/database.yml
 .env
 
+# secret token
+.secret
+secrets.yml
