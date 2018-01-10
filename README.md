@@ -1,4 +1,4 @@
-## Bulletin Board
+# Bulletin Board
 
 The Bulletin Board is for obtaining the latest information regarding upcoming activity, event or module for all CS students and CS Academic staff. The information in the Bulletin Board are constantly curated to assist the students/faculty members in obtaining the latest and relevant information.
 
