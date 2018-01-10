@@ -5,7 +5,7 @@ Rails.application.configure do
   # test suite. You never need to work with it otherwise. Remember that
   # your test database is "scratch space" for the test suite and is wiped
   # and recreated between test runs. Don't rely on the data there!
-  config.secret_key_base = ENV["SECRET_KEY_BASE"]
+  config.secret_key_base = 'ebaf140470419eceee769002afbead445b0a8ddbb6cc38b0b8dcb13762471e433c35eeb305153b1c4167820d462490644ad5fde85a9197b6794edaf03802957a'
 
   config.cache_classes = true
 
