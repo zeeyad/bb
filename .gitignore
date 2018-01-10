@@ -20,8 +20,6 @@
 sendgrid.env
 
 # Ignore application configuration
-/config/database.yml
-.env
 
 # secret token
 .secret
