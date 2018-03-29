@@ -51,7 +51,7 @@ end
 
 group :production do
   gem 'pg', '~> 0.18'
-  gem 'newrelic_rpm'
+  # gem 'newrelic_rpm'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
