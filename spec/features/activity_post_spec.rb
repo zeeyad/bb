@@ -6,7 +6,7 @@ describe 'navigate' do
   let(:lecturer) { FactoryBot.create(:lecturer) }
   let(:programme_leader) { FactoryBot.create(:programme_leader) }
 
-  let(:activity_post) { FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)}
+  let(:programme_leader_1_with_activity_posts) { FactoryBot.create(:programme_leader_1_with_activity_posts)}
   let(:activity_post_1) { FactoryBot.create(:activity_post_1, user_id: user.id, status: 0)}
   let(:activity_post_2) { FactoryBot.create(:activity_post_2, user_id: user.id, status: 1)}
 
@@ -92,9 +92,8 @@ describe 'navigate' do
   	end
 
   	it 'can be edited by clicking edit on the page' do
-      activity =  FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)
   	  visit activity_posts_path
-  	  click_link("edit_#{activity.id}")
+  	  click_link("edit_#{activity_post.id}")
       fill_in 'Title', with: "My Title"
     	fill_in 'Description', with: "Edited Content"
       click_on "Save"
@@ -133,9 +132,8 @@ describe 'navigate' do
 
   	it 'can be rejected' do
       login_as(programme_leader, :scope => :user)
-  	  act = FactoryBot.create(:activity_post, user_id: programme_leader.id, status: 1)
   	  visit activity_posts_path
-  	  click_link("delete_#{act.id}")
+  	  click_link("delete_#{programme_leader_1_with_activity_posts.id}")
   	  expect(page.status_code).to eq(200)
   	end
   end

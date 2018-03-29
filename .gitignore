@@ -24,3 +24,5 @@ sendgrid.env
 .env
 
 # secret token
+.secret
+secrets.yml
