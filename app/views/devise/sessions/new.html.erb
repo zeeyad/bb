@@ -1,9 +1,11 @@
-<section style="background-image: url(<%= asset_path 'stars-bg.jpg' %>); background-size: cover; color: white; height: 100%; display: flex; align-items: center;">
-  <div class="container">
+<section>
+  <div class="container mt-5">
     
-    <div class="col-md-4 offset-md-4 landing-column">
+    <div class="pt-5 col-md-4 offset-md-4 landing-column">
 
-      <h2>Log in</h2>
+      <%= image_tag "ubd-logo.png", style: "max-width: 15%;" %><br>
+
+      <h2>Please Sign In</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="form-group">
