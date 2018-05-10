@@ -1,11 +1,16 @@
 class CreateActivityPost < ActiveRecord::Migration[5.1]
   def change
-      add_column :activity_posts, :start_date, :date
-      add_column :activity_posts, :end_date, :date
-      add_column :activity_posts, :venue, :string
-      add_column :activity_posts, :start_time, :time # Only if using reconfirmable  end
-      add_column :activity_posts, :end_time, :time # Only if using reconfirmable  end
-      add_column :activity_posts, :user_id, :integer # Only if using reconfirmable  end
-      add_column :activity_posts, :status, :integer # Only if using reconfirmable  end
+    create_table :activity_posts do |t|
+      t.string :title
+      t.text :description
+      t.date :start_date
+      t.date :end_date
+      t.string :venue
+      t.time :start_time
+      t.time :end_time
+      t.references :user, foreign_key: true
+      t.integer :status, default: 0
+      t.timestamps
+    end
   end
 end
